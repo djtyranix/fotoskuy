@@ -8,29 +8,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let altTitle: String = "My name is Michael, you know."
-    let helloWorld: String = "Hello, World!"
     
-    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var previewGallery: UIImageView!
     
-    @IBAction func btnClickMe(_ sender: UIButton) {
-        replaceTitle(title: helloWorld)
+    @IBAction func shutterButtonPressed(_ sender: UIButton) {
     }
     
-    @IBAction func btnClickThis(_ sender: UIButton) {
-        replaceTitle(title: altTitle)
+    @IBAction func flashPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func timerPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func infoPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func gridPressed(_ sender: UIButton) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    func replaceTitle(title: String) {
-        labelTitle.text = title
-    }
-
-
 }
 

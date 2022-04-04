@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     let altTitle: String = "My name is Michael, you know."
     let helloWorld: String = "Hello, World!"
+    let h: String = "Hello"
     
     @IBOutlet weak var labelTitle: UILabel!
     

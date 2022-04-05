@@ -18,6 +18,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fa7-JR-lUZ">
                                 <rect key="frame" x="16" y="91.999999999999972" width="358" height="477.33333333333326"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fa7-JR-lUZ" secondAttribute="height" multiplier="3:4" id="mP2-PQ-I8Y"/>
                                 </constraints>
@@ -119,6 +120,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="photoFrame" destination="fa7-JR-lUZ" id="fes-1p-dkw"/>
                         <outlet property="previewGallery" destination="h5E-vo-tHs" id="MJH-tF-8KB"/>
                     </connections>
                 </viewController>

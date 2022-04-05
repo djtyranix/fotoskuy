@@ -290,6 +290,8 @@
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = fotoskuy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FotoSkuy;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photos from the app.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -318,6 +320,8 @@
 				DEVELOPMENT_TEAM = 6BV79TUAG4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = fotoskuy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FotoSkuy;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photos from the app.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

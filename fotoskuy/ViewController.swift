@@ -14,12 +14,6 @@ class ViewController: UIViewController {
     @IBAction func shutterButtonPressed(_ sender: UIButton) {
     }
     
-    @IBAction func flashPressed(_ sender: UIButton) {
-    }
-    
-    @IBAction func timerPressed(_ sender: UIButton) {
-    }
-    
     @IBAction func infoPressed(_ sender: UIButton) {
     }
     

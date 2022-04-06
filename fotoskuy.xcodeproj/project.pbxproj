@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A40D970D27FBFD370023969C /* InfoSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40D970C27FBFD370023969C /* InfoSheet.storyboard */; };
 		A4B2784127FD96FA00D0FD89 /* InfoSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */; };
+		A8D5BAE227FDE9B50087F307 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5BAE127FDE9B50087F307 /* Composition.swift */; };
 		A8DC211827FA86120070D545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC211727FA86120070D545 /* AppDelegate.swift */; };
 		A8DC211A27FA86120070D545 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC211927FA86120070D545 /* SceneDelegate.swift */; };
 		A8DC211C27FA86120070D545 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC211B27FA86120070D545 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		A40D970C27FBFD370023969C /* InfoSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoSheet.storyboard; sourceTree = "<group>"; };
 		A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetViewController.swift; sourceTree = "<group>"; };
+		A8D5BAE127FDE9B50087F307 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		A8DC211427FA86120070D545 /* fotoskuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fotoskuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC211727FA86120070D545 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8DC211927FA86120070D545 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		A8D5BAE027FDE98D0087F307 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8D5BAE127FDE9B50087F307 /* Composition.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A8DC210B27FA86120070D545 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 		A8DC211627FA86120070D545 /* fotoskuy */ = {
 			isa = PBXGroup;
 			children = (
+				A8D5BAE027FDE98D0087F307 /* Models */,
 				A8D5BADF27FDE92A0087F307 /* Delegates */,
 				A8D5BADE27FDE91C0087F307 /* Storyboards */,
 				A8D5BADD27FDE9120087F307 /* ViewController */,
@@ -173,6 +184,7 @@
 				A8DC211827FA86120070D545 /* AppDelegate.swift in Sources */,
 				A8DC211A27FA86120070D545 /* SceneDelegate.swift in Sources */,
 				A4B2784127FD96FA00D0FD89 /* InfoSheetViewController.swift in Sources */,
+				A8D5BAE227FDE9B50087F307 /* Composition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

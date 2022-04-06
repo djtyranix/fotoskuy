@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player View Controller-->
+        <scene sceneID="GIj-gJ-mU3">
+            <objects>
+                <viewController storyboardIdentifier="compinfo" id="REs-86-FPg" customClass="PlayerViewController" customModule="fotoskuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sBt-0K-SVs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1L-w9-xVo" customClass="PlayerView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Composition Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-gP-ezu">
+                                        <rect key="frame" x="44" y="30" width="318" height="22"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="The Rule of Thirds places your subject on the left-third or right-third of the frame. " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuT-R4-VqK">
+                                        <rect key="frame" x="52" y="279" width="310" height="52"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvC-pV-yFC">
+                                        <rect key="frame" x="66" y="80" width="282" height="179"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="179" id="UR2-UO-iOw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xr3-El-OnY">
+                                        <rect key="frame" x="319" y="30" width="75" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="x1P-Cc-oOK"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Done">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="doneActionButton:" destination="REs-86-FPg" eventType="touchUpInside" id="kVu-B5-7vJ"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-sh-fxA">
+                                        <rect key="frame" x="52" y="384" width="310" height="456"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <mutableString key="text">The Rule of Thirds brings focus and balance to your landscape shots. This photo, by adventure photographer Jimmy Chin, uses the Rule of Thirds, where the main subject is positioned along the right vertical-third line.
+
+1. Create a sense of expansiveness by positioning the horizon line along the lower third of the grid, drawing the viewer's eye to the sky above.
+2. Position the horizon along the upper third to draw the eye to the foreground to create a sense of proximity with the landscape.
+3. Place an interesting natural feature—a mountain peak or waterfall—on one of the four intersection points to create a focal point The Rule of Thirds brings focus and balance to your landscape shots. This photo, by adventure photographer Jimmy Chin, uses the Rule of Thirds, where the main subject is positioned along the right vertical-third line.
+
+1. Create a sense of expansiveness by positioning the horizon line along the lower third of the grid, drawing the viewer's eye to the sky above.
+2. Position the horizon along the upper third to draw the eye to the foreground to create a sense of proximity with the landscape.
+3. Place an interesting natural feature—a mountain peak or waterfall—on one of the four intersection points to create a focal point</mutableString>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Xr3-El-OnY" secondAttribute="trailing" constant="20" id="0fN-8u-T1f"/>
+                                    <constraint firstItem="FW9-gP-ezu" firstAttribute="top" secondItem="Xr3-El-OnY" secondAttribute="top" id="2Sp-cC-NJj"/>
+                                    <constraint firstItem="FW9-gP-ezu" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="44" id="2aX-OC-eyr"/>
+                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="379-6i-qwW"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="h8s-sh-fxA" secondAttribute="trailing" constant="44" id="6Mt-uV-Jnp"/>
+                                    <constraint firstItem="EuT-R4-VqK" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leadingMargin" constant="44" id="8Kr-nb-wlw"/>
+                                    <constraint firstItem="EuT-R4-VqK" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="A8N-L0-WL3"/>
+                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="top" secondItem="EuT-R4-VqK" secondAttribute="bottom" constant="53" id="ETw-eF-CMR"/>
+                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="KfG-z8-s69"/>
+                                    <constraint firstItem="Xr3-El-OnY" firstAttribute="top" secondItem="c1L-w9-xVo" secondAttribute="top" constant="30" id="NrZ-BT-cqk"/>
+                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="top" secondItem="c1L-w9-xVo" secondAttribute="top" constant="80" id="Tau-fh-hYe"/>
+                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="66" id="W24-sX-KhP"/>
+                                    <constraint firstAttribute="trailing" secondItem="FW9-gP-ezu" secondAttribute="trailing" constant="52" id="W2V-7e-B77"/>
+                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="top" secondItem="Xr3-El-OnY" secondAttribute="bottom" constant="20" id="bg7-1F-iZI"/>
+                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="bottom" secondItem="c1L-w9-xVo" secondAttribute="bottomMargin" constant="30" id="faS-AQ-4fe"/>
+                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leadingMargin" constant="44" id="lqi-vw-R95"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="FW9-gP-ezu" secondAttribute="trailing" constant="44" id="p6I-zf-0FO"/>
+                                    <constraint firstItem="EuT-R4-VqK" firstAttribute="top" secondItem="wvC-pV-yFC" secondAttribute="bottom" constant="20" id="s5L-QT-J18"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="EuT-R4-VqK" secondAttribute="trailing" constant="44" id="vXC-Pz-q0F"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UUP-Iq-RzW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c1L-w9-xVo" firstAttribute="leading" secondItem="UUP-Iq-RzW" secondAttribute="leading" id="APJ-fF-V7I"/>
+                            <constraint firstItem="UUP-Iq-RzW" firstAttribute="trailing" secondItem="c1L-w9-xVo" secondAttribute="trailing" id="Im9-nl-fcK"/>
+                            <constraint firstItem="c1L-w9-xVo" firstAttribute="top" secondItem="UUP-Iq-RzW" secondAttribute="top" id="RhG-oV-1jr"/>
+                            <constraint firstItem="UUP-Iq-RzW" firstAttribute="bottom" secondItem="c1L-w9-xVo" secondAttribute="bottom" id="e8n-Kx-Hwd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="compositionBodyText" destination="h8s-sh-fxA" id="c3c-jp-ZsU"/>
+                        <outlet property="compositionImageExample" destination="wvC-pV-yFC" id="9Lt-9X-jyR"/>
+                        <outlet property="compositionName" destination="FW9-gP-ezu" id="Rx6-lp-waL"/>
+                        <outlet property="compositionSubtitle" destination="EuT-R4-VqK" id="Uj3-gI-jKV"/>
+                        <outlet property="doneButton" destination="Xr3-El-OnY" id="NQg-Da-t6l"/>
+                        <outlet property="holder" destination="c1L-w9-xVo" id="j3E-up-VRf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEq-Vg-Eec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1696.2616822429904" y="66.090712742980571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

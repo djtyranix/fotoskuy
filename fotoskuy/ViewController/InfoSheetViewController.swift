@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerViewController: UIViewController {
+class InfoSheetViewController: UIViewController {
 
     @IBOutlet var holder : UIView!
     
@@ -22,34 +22,21 @@ class PlayerViewController: UIViewController {
     
     @IBOutlet weak var compositionBodyText: UITextView!
     
+    var composition: Composition = Composition(compositionName: "", compositionSubtitle: "", compositionBodyText: "", compositionImageName: "", compositionGridImageName: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureCompositionInfo()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if holder.subviews.count == 1{
-            configure()
-    }
-        func configure(){
-            
-        }
-      
-    }
- 
   
     @IBAction func doneActionButton(_ sender: Any) {
         dismiss(animated: true)
     }
     
-
+    private func configureCompositionInfo() {
+        compositionName.text = composition.compositionName
+        compositionSubtitle.text = composition.compositionSubtitle
+        compositionBodyText.text = composition.compositionBodyText
+    }
 
 }
-
-////el mau tambah di main
-//guard let ivc = storyboard?.instantiateViewController(identifier: "compinf") as? PlayerViewController else {
-//     return
-//   }
-//present (ivc, animated: true)

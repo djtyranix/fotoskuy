@@ -50,6 +50,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         previewLayer.frame = photoFrame.bounds
+        previewLayer.masksToBounds = true
+        previewLayer.cornerRadius = 8
     }
     
     private func checkCameraPermission() {

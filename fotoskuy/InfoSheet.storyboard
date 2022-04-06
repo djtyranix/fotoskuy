@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,41 +8,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Player View Controller-->
+        <!--Info Sheet View Controller-->
         <scene sceneID="GIj-gJ-mU3">
             <objects>
-                <viewController storyboardIdentifier="compinfo" id="REs-86-FPg" customClass="PlayerViewController" customModule="fotoskuy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infoView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="REs-86-FPg" customClass="InfoSheetViewController" customModule="fotoskuy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sBt-0K-SVs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1L-w9-xVo" customClass="PlayerView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1L-w9-xVo">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Composition Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-gP-ezu">
-                                        <rect key="frame" x="44" y="30" width="318" height="22"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Composition Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-gP-ezu">
+                                        <rect key="frame" x="105.33333333333333" y="47" width="179.33333333333337" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="The Rule of Thirds places your subject on the left-third or right-third of the frame. " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuT-R4-VqK">
-                                        <rect key="frame" x="52" y="279" width="310" height="52"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvC-pV-yFC">
-                                        <rect key="frame" x="66" y="80" width="282" height="179"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvC-pV-yFC">
+                                        <rect key="frame" x="32" y="87.000000000000014" width="326" height="183.33333333333337"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="179" id="UR2-UO-iOw"/>
+                                            <constraint firstAttribute="width" secondItem="wvC-pV-yFC" secondAttribute="height" multiplier="16:9" id="m0J-RG-k4o"/>
                                         </constraints>
                                     </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="The Rule of Thirds places your subject on the left-third or right-third of the frame. " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuT-R4-VqK">
+                                        <rect key="frame" x="32" y="286.33333333333331" width="326" height="80.666666666666686"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-sh-fxA">
+                                        <rect key="frame" x="32" y="383" width="326" height="333"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">The Rule of Thirds brings focus and balance to your landscape shots. This photo, by adventure photographer Jimmy Chin, uses the Rule of Thirds, where the main subject is positioned along the right vertical-third line.
+
+1. Create a sense of expansiveness by positioning the horizon line along the lower third of the grid, drawing the viewer's eye to the sky above.
+2. Position the horizon along the upper third to draw the eye to the foreground to create a sense of proximity with the landscape.
+3. Place an interesting natural feature—a mountain peak or waterfall—on one of the four intersection points to create a focal point The Rule of Thirds brings focus and balance to your landscape shots. This photo, by adventure photographer Jimmy Chin, uses the Rule of Thirds, where the main subject is positioned along the right vertical-third line.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xr3-El-OnY">
-                                        <rect key="frame" x="319" y="30" width="75" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="x1P-Cc-oOK"/>
-                                        </constraints>
+                                        <rect key="frame" x="313.66666666666669" y="15" width="60.333333333333314" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Done">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
@@ -51,44 +61,25 @@
                                             <action selector="doneActionButton:" destination="REs-86-FPg" eventType="touchUpInside" id="kVu-B5-7vJ"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-sh-fxA">
-                                        <rect key="frame" x="52" y="384" width="310" height="456"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">The Rule of Thirds brings focus and balance to your landscape shots. This photo, by adventure photographer Jimmy Chin, uses the Rule of Thirds, where the main subject is positioned along the right vertical-third line.
-
-1. Create a sense of expansiveness by positioning the horizon line along the lower third of the grid, drawing the viewer's eye to the sky above.
-2. Position the horizon along the upper third to draw the eye to the foreground to create a sense of proximity with the landscape.
-3. Place an interesting natural feature—a mountain peak or waterfall—on one of the four intersection points to create a focal point The Rule of Thirds brings focus and balance to your landscape shots. This photo, by adventure photographer Jimmy Chin, uses the Rule of Thirds, where the main subject is positioned along the right vertical-third line.
-
-1. Create a sense of expansiveness by positioning the horizon line along the lower third of the grid, drawing the viewer's eye to the sky above.
-2. Position the horizon along the upper third to draw the eye to the foreground to create a sense of proximity with the landscape.
-3. Place an interesting natural feature—a mountain peak or waterfall—on one of the four intersection points to create a focal point</mutableString>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Xr3-El-OnY" secondAttribute="trailing" constant="20" id="0fN-8u-T1f"/>
-                                    <constraint firstItem="FW9-gP-ezu" firstAttribute="top" secondItem="Xr3-El-OnY" secondAttribute="top" id="2Sp-cC-NJj"/>
-                                    <constraint firstItem="FW9-gP-ezu" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="44" id="2aX-OC-eyr"/>
-                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="379-6i-qwW"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="h8s-sh-fxA" secondAttribute="trailing" constant="44" id="6Mt-uV-Jnp"/>
-                                    <constraint firstItem="EuT-R4-VqK" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leadingMargin" constant="44" id="8Kr-nb-wlw"/>
-                                    <constraint firstItem="EuT-R4-VqK" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="A8N-L0-WL3"/>
-                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="top" secondItem="EuT-R4-VqK" secondAttribute="bottom" constant="53" id="ETw-eF-CMR"/>
-                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="KfG-z8-s69"/>
-                                    <constraint firstItem="Xr3-El-OnY" firstAttribute="top" secondItem="c1L-w9-xVo" secondAttribute="top" constant="30" id="NrZ-BT-cqk"/>
-                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="top" secondItem="c1L-w9-xVo" secondAttribute="top" constant="80" id="Tau-fh-hYe"/>
-                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="66" id="W24-sX-KhP"/>
-                                    <constraint firstAttribute="trailing" secondItem="FW9-gP-ezu" secondAttribute="trailing" constant="52" id="W2V-7e-B77"/>
-                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="top" secondItem="Xr3-El-OnY" secondAttribute="bottom" constant="20" id="bg7-1F-iZI"/>
-                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="bottom" secondItem="c1L-w9-xVo" secondAttribute="bottomMargin" constant="30" id="faS-AQ-4fe"/>
-                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leadingMargin" constant="44" id="lqi-vw-R95"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="FW9-gP-ezu" secondAttribute="trailing" constant="44" id="p6I-zf-0FO"/>
-                                    <constraint firstItem="EuT-R4-VqK" firstAttribute="top" secondItem="wvC-pV-yFC" secondAttribute="bottom" constant="20" id="s5L-QT-J18"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="EuT-R4-VqK" secondAttribute="trailing" constant="44" id="vXC-Pz-q0F"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xr3-El-OnY" secondAttribute="trailing" constant="16" id="0fN-8u-T1f"/>
+                                    <constraint firstAttribute="trailing" secondItem="h8s-sh-fxA" secondAttribute="trailing" constant="32" id="2W9-HK-iTB"/>
+                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="5xK-lm-861"/>
+                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="top" secondItem="EuT-R4-VqK" secondAttribute="bottom" constant="16" id="NnD-hx-Fak"/>
+                                    <constraint firstAttribute="bottom" secondItem="h8s-sh-fxA" secondAttribute="bottom" constant="50" id="OQ2-oJ-eto"/>
+                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="32" id="ViG-LH-qBb"/>
+                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="32" id="XFF-QZ-6UL"/>
+                                    <constraint firstItem="FW9-gP-ezu" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="Xkl-je-KrX"/>
+                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="huW-7f-ei2"/>
+                                    <constraint firstAttribute="trailing" secondItem="wvC-pV-yFC" secondAttribute="trailing" constant="32" id="hvA-5c-Bph"/>
+                                    <constraint firstItem="EuT-R4-VqK" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="32" id="l8w-W8-YRq"/>
+                                    <constraint firstItem="wvC-pV-yFC" firstAttribute="top" secondItem="FW9-gP-ezu" secondAttribute="bottom" constant="16" id="u3o-3w-PBd"/>
+                                    <constraint firstAttribute="trailing" secondItem="EuT-R4-VqK" secondAttribute="trailing" constant="32" id="w2E-pa-C7F"/>
+                                    <constraint firstItem="FW9-gP-ezu" firstAttribute="top" secondItem="Xr3-El-OnY" secondAttribute="bottom" id="wDF-K3-gPi"/>
+                                    <constraint firstItem="Xr3-El-OnY" firstAttribute="top" secondItem="c1L-w9-xVo" secondAttribute="top" constant="15" id="xs5-4V-L1a"/>
+                                    <constraint firstItem="EuT-R4-VqK" firstAttribute="top" secondItem="wvC-pV-yFC" secondAttribute="bottom" constant="16" id="z7y-SN-QtB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -112,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEq-Vg-Eec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1696.2616822429904" y="66.090712742980571"/>
+            <point key="canvasLocation" x="1695.3846153846152" y="65.402843601895725"/>
         </scene>
     </scenes>
     <resources>

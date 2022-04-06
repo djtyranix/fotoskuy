@@ -31,6 +31,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     @IBAction func infoPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToInfoSheet", sender: sender)
     }
     
     @IBAction func gridPressed(_ sender: UIButton) {

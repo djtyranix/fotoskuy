@@ -36,11 +36,26 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         capturePhoto()
     }
     
+    @IBOutlet weak var flashButton: UIButton!
+    
+    @IBOutlet weak var timerButton: UIButton!
+    
+    @IBOutlet weak var flipButton: UIButton!
+    
     @IBAction func infoPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToInfoSheet", sender: sender)
     }
     
     @IBAction func gridPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func flashPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func timerPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func rotatePressed(_ sender: UIButton) {
     }
     
     override func viewDidLoad() {

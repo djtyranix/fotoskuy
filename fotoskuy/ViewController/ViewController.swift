@@ -191,6 +191,15 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     private func capturePhoto() {
+        
+        DispatchQueue.main.async {
+            self.photoFrame.alpha = 0
+            
+            UIView.animate(withDuration: 0.25) {
+                self.photoFrame.alpha = 1
+            }
+        }
+        
         let photoSettings = AVCapturePhotoSettings()
         
         photoSettings.flashMode = determineFlashMode()
@@ -208,7 +217,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         
-        previewGallery?.image = image! as UIImage
+        self.previewGallery.alpha = 0
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.previewGallery.alpha = 1
+                self.previewGallery?.image = image! as UIImage
+            }
+        }
     }
     
     private func initDefaultComposition() {

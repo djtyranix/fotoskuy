@@ -20,6 +20,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     // Video Preview
     let previewLayer = AVCaptureVideoPreviewLayer()
     
+    // Video Device Input
+    var videoDeviceInput: AVCaptureDeviceInput!
+    
     // Chosen Composition
     var currentComposition: Composition!
     
@@ -56,6 +59,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     @IBAction func rotatePressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func focusAndExposeTap(_ sender: UITapGestureRecognizer) {
+        let devicePoint = previewLayer.captureDevicePointConverted(fromLayerPoint: sender.location(in: sender.view))
+        
+        print(devicePoint)
+        
+        focus(with: .autoFocus, exposureMode: .autoExpose, at: devicePoint, monitorSubjectAreaChange: true)
     }
     
     override func viewDidLoad() {
@@ -138,6 +149,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     private func setUpCamera() {
         let session = AVCaptureSession()
+        
         if let device = AVCaptureDevice.default(for: .video) {
             do {
                 let input = try AVCaptureDeviceInput(device: device)
@@ -154,6 +166,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                 
                 session.startRunning()
                 self.session = session
+                self.videoDeviceInput = input
             } catch {
                 print(error)
             }
@@ -183,5 +196,31 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     private func initCompositionArray() {
         compositionCollections = initCompData()
+    }
+    
+    private func focus(with focusMode: AVCaptureDevice.FocusMode,
+                       exposureMode: AVCaptureDevice.ExposureMode,
+                       at devicePoint: CGPoint,
+                       monitorSubjectAreaChange: Bool) {
+        let device = videoDeviceInput.device
+        
+        do {
+            try device.lockForConfiguration()
+            
+            if device.isFocusPointOfInterestSupported && device.isFocusModeSupported(focusMode) {
+                device.focusMode = focusMode
+                device.focusPointOfInterest = devicePoint
+            }
+            
+            if (device.isExposurePointOfInterestSupported && device.isExposureModeSupported(exposureMode)) {
+                device.exposureMode = exposureMode
+                device.exposurePointOfInterest = devicePoint
+            }
+            
+            device.isSubjectAreaChangeMonitoringEnabled = monitorSubjectAreaChange
+            device.unlockForConfiguration()
+        } catch {
+            print("Could not lock device for configuration: \(error)")
+        }
     }
 }

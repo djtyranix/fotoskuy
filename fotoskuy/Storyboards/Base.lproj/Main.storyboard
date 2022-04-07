@@ -61,7 +61,7 @@
                                             <action selector="shutterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dCI-h5-CEs"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-vo-tHs">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-vo-tHs">
                                         <rect key="frame" x="36" y="47.333333333333258" width="75" height="75"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -152,7 +152,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvi-Vt-IJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664" y="33"/>
+            <point key="canvasLocation" x="714" y="51"/>
         </scene>
     </scenes>
     <resources>

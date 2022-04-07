@@ -26,21 +26,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvC-pV-yFC">
-                                        <rect key="frame" x="32" y="87.000000000000014" width="326" height="183.33333333333337"/>
+                                        <rect key="frame" x="32" y="86.999999999999986" width="326" height="244.66666666666663"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="wvC-pV-yFC" secondAttribute="height" multiplier="16:9" id="m0J-RG-k4o"/>
+                                            <constraint firstAttribute="width" secondItem="wvC-pV-yFC" secondAttribute="height" multiplier="4:3" id="m0J-RG-k4o"/>
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="The Rule of Thirds places your subject on the left-third or right-third of the frame. " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuT-R4-VqK">
-                                        <rect key="frame" x="32" y="286.33333333333331" width="326" height="80.666666666666686"/>
+                                        <rect key="frame" x="32" y="347.66666666666669" width="326" height="80.666666666666686"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-sh-fxA">
-                                        <rect key="frame" x="32" y="383" width="326" height="351"/>
+                                        <rect key="frame" x="32" y="436.33333333333326" width="326" height="297.66666666666674"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">The Rule of Thirds brings focus and balance to your landscape shots. This photo, by adventure photographer Jimmy Chin, uses the Rule of Thirds, where the main subject is positioned along the right vertical-third line.
 
@@ -67,7 +67,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Xr3-El-OnY" secondAttribute="trailing" constant="16" id="0fN-8u-T1f"/>
                                     <constraint firstAttribute="trailing" secondItem="h8s-sh-fxA" secondAttribute="trailing" constant="32" id="2W9-HK-iTB"/>
                                     <constraint firstItem="h8s-sh-fxA" firstAttribute="centerX" secondItem="c1L-w9-xVo" secondAttribute="centerX" id="5xK-lm-861"/>
-                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="top" secondItem="EuT-R4-VqK" secondAttribute="bottom" constant="16" id="NnD-hx-Fak"/>
+                                    <constraint firstItem="h8s-sh-fxA" firstAttribute="top" secondItem="EuT-R4-VqK" secondAttribute="bottom" constant="8" id="NnD-hx-Fak"/>
                                     <constraint firstAttribute="bottom" secondItem="h8s-sh-fxA" secondAttribute="bottom" constant="32" id="OQ2-oJ-eto"/>
                                     <constraint firstItem="wvC-pV-yFC" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="32" id="ViG-LH-qBb"/>
                                     <constraint firstItem="h8s-sh-fxA" firstAttribute="leading" secondItem="c1L-w9-xVo" secondAttribute="leading" constant="32" id="XFF-QZ-6UL"/>

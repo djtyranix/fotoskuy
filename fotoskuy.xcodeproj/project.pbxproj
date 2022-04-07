@@ -111,10 +111,10 @@
 				A86B47C127FE715F005B5F5A /* Init */,
 				A8D5BAE027FDE98D0087F307 /* Models */,
 				A8D5BADF27FDE92A0087F307 /* Delegates */,
+				A8DC212527FA86150070D545 /* Info.plist */,
+				A8DC212027FA86150070D545 /* Assets.xcassets */,
 				A8D5BADE27FDE91C0087F307 /* Storyboards */,
 				A8D5BADD27FDE9120087F307 /* ViewController */,
-				A8DC212027FA86150070D545 /* Assets.xcassets */,
-				A8DC212527FA86150070D545 /* Info.plist */,
 			);
 			path = fotoskuy;
 			sourceTree = "<group>";

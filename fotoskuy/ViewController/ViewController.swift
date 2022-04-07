@@ -161,7 +161,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     private func initDefaultComposition() {
-        self.currentComposition = compositionCollections[5]
+        self.currentComposition = compositionCollections[0]
     }
     
     private func initCompositionArray() {

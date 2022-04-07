@@ -11,6 +11,7 @@
 		0E0B1D3827FE9D3E00E07930 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0B1D3727FE9D3E00E07930 /* GalleryViewController.swift */; };
 		A40D970D27FBFD370023969C /* InfoSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40D970C27FBFD370023969C /* InfoSheet.storyboard */; };
 		A4B2784127FD96FA00D0FD89 /* InfoSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */; };
+		A84EC05F27FF38DD00CCA375 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC05E27FF38DD00CCA375 /* Extensions.swift */; };
 		A86B47C327FE717A005B5F5A /* CompositionInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86B47C227FE717A005B5F5A /* CompositionInit.swift */; };
 		A8D5BAE227FDE9B50087F307 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5BAE127FDE9B50087F307 /* Composition.swift */; };
 		A8DC211827FA86120070D545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC211727FA86120070D545 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		0E0B1D3727FE9D3E00E07930 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		A40D970C27FBFD370023969C /* InfoSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoSheet.storyboard; sourceTree = "<group>"; };
 		A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetViewController.swift; sourceTree = "<group>"; };
+		A84EC05E27FF38DD00CCA375 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A86B47C227FE717A005B5F5A /* CompositionInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionInit.swift; sourceTree = "<group>"; };
 		A8D5BAE127FDE9B50087F307 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		A8DC211427FA86120070D545 /* fotoskuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fotoskuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,12 +51,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A86B47C127FE715F005B5F5A /* Init */ = {
+		A86B47C127FE715F005B5F5A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				A86B47C227FE717A005B5F5A /* CompositionInit.swift */,
+				A84EC05E27FF38DD00CCA375 /* Extensions.swift */,
 			);
-			path = Init;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		A8D5BADD27FDE9120087F307 /* ViewController */ = {
@@ -114,7 +117,7 @@
 		A8DC211627FA86120070D545 /* fotoskuy */ = {
 			isa = PBXGroup;
 			children = (
-				A86B47C127FE715F005B5F5A /* Init */,
+				A86B47C127FE715F005B5F5A /* Utilities */,
 				A8D5BAE027FDE98D0087F307 /* Models */,
 				A8D5BADF27FDE92A0087F307 /* Delegates */,
 				A8DC212527FA86150070D545 /* Info.plist */,
@@ -201,6 +204,7 @@
 				A8DC211C27FA86120070D545 /* ViewController.swift in Sources */,
 				0E0B1D3827FE9D3E00E07930 /* GalleryViewController.swift in Sources */,
 				A8DC211827FA86120070D545 /* AppDelegate.swift in Sources */,
+				A84EC05F27FF38DD00CCA375 /* Extensions.swift in Sources */,
 				A8DC211A27FA86120070D545 /* SceneDelegate.swift in Sources */,
 				A4B2784127FD96FA00D0FD89 /* InfoSheetViewController.swift in Sources */,
 				A86B47C327FE717A005B5F5A /* CompositionInit.swift in Sources */,

@@ -29,6 +29,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     // Composition Array
     var compositionCollections = [Composition]()
     
+    // Flash Mode
+    var flashMode = 0 // Auto = 0, On = 1, Off = 2
+    
     @IBOutlet weak var previewGallery: UIImageView!
     
     // Camera Frame
@@ -53,6 +56,20 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     @IBAction func flashPressed(_ sender: UIButton) {
+        switch flashMode {
+        case 0:
+            flashMode = 1
+            flashButton.tintColor = UIColor(hex: "#A5FF00FF")
+        case 1:
+            flashMode = 2
+            flashButton.tintColor = UIColor(hex: "#8E8D94FF")
+        case 2:
+            flashMode = 0
+            flashButton.tintColor = .white
+        default:
+            flashMode = 0
+            flashButton.tintColor = .white
+        }
     }
     
     @IBAction func timerPressed(_ sender: UIButton) {
@@ -174,7 +191,11 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     private func capturePhoto() {
-        output.capturePhoto(with: AVCapturePhotoSettings(),
+        let photoSettings = AVCapturePhotoSettings()
+        
+        photoSettings.flashMode = determineFlashMode()
+        
+        output.capturePhoto(with: photoSettings,
                             delegate: self)
     }
     
@@ -221,6 +242,19 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             device.unlockForConfiguration()
         } catch {
             print("Could not lock device for configuration: \(error)")
+        }
+    }
+    
+    private func determineFlashMode() -> AVCaptureDevice.FlashMode {
+        switch flashMode {
+        case 0:
+            return .auto
+        case 1:
+            return .on
+        case 2:
+            return .off
+        default:
+            return .auto
         }
     }
 }

@@ -158,6 +158,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let image = UIImage(data: data)
         
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        
+        previewGallery?.image = image! as UIImage
     }
     
     private func initDefaultComposition() {

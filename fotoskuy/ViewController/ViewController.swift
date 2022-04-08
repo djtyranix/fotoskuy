@@ -56,6 +56,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerlabel), userInfo: nil, repeats: true)
         }
     }
+    @IBOutlet weak var gridOverlay: UIImageView!
     
     @IBOutlet weak var flashButton: UIButton!
     
@@ -63,11 +64,25 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     @IBOutlet weak var flipButton: UIButton!
     
+    @IBOutlet weak var gridButton: UIButton!
+    
+    @IBOutlet weak var infoButton: UIButton!
+    
     @IBAction func infoPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToInfoSheet", sender: sender)
     }
     
     @IBAction func gridPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "CompositionChooser", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "compositionChooser")
+        
+        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.large()]
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateComposition(notification:)), name: Notification.Name("composition"), object: nil)
+        
+        self.present(viewController, animated: true)
     }
     
     @IBAction func flashPressed(_ sender: UIButton) {
@@ -302,6 +317,13 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     private func initDefaultComposition() {
         self.currentComposition = compositionCollections[0]
+        
+        gridOverlay.alpha = 1
+        gridButton.tintColor = .white
+        infoButton.tintColor = .white
+        infoButton.isEnabled = true
+        
+        gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
     }
     
     private func initCompositionArray() {
@@ -373,6 +395,30 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             timerLabel.alpha = 0
             capturePhoto()
             self.timer.invalidate()
+        }
+    }
+    
+    @objc private func updateComposition(notification: NSNotification) {
+        let receivedData = notification.userInfo
+        if let selectedComposition = receivedData!["selectedComposition"] as? Composition {
+//            print(selectedComposition.compositionName)
+            
+            if selectedComposition.compositionName == "Off" {
+                gridOverlay.alpha = 0
+                gridButton.tintColor = UIColor(hex: "#8E8D94FF")
+                infoButton.tintColor = UIColor(hex: "#8E8D94FF")
+                infoButton.isEnabled = false
+            } else {
+                gridOverlay.alpha = 1
+                gridButton.tintColor = .white
+                infoButton.tintColor = .white
+                infoButton.isEnabled = true
+                
+                gridOverlay.image = UIImage(named: selectedComposition.compositionGridImageName)
+            }
+            
+            self.currentComposition = selectedComposition
+            
         }
     }
     

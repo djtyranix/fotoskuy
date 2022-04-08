@@ -60,8 +60,11 @@
                                     <action selector="flashPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HX4-uC-TSt"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fPW-f0-sGO">
+                                <rect key="frame" x="16" y="118.99999999999997" width="358" height="477.33333333333326"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7g-Rs-ND3">
-                                <rect key="frame" x="113.33333333333333" y="271.66666666666669" width="163.66666666666669" height="172"/>
+                                <rect key="frame" x="113" y="271.66666666666669" width="164" height="172"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="144"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,12 +155,15 @@
                             <constraint firstItem="x6n-CN-EZg" firstAttribute="width" secondItem="x6n-CN-EZg" secondAttribute="height" multiplier="1:1" id="5x1-fO-7OV"/>
                             <constraint firstItem="9tE-mK-lUo" firstAttribute="centerY" secondItem="s67-Xc-Kb4" secondAttribute="centerY" id="Bco-Nm-JgR"/>
                             <constraint firstItem="fa7-JR-lUZ" firstAttribute="top" secondItem="x6n-CN-EZg" secondAttribute="bottom" constant="8" id="DQg-Gk-iwl"/>
+                            <constraint firstItem="fPW-f0-sGO" firstAttribute="trailing" secondItem="fa7-JR-lUZ" secondAttribute="trailing" id="IDC-1A-kcY"/>
+                            <constraint firstItem="fPW-f0-sGO" firstAttribute="leading" secondItem="fa7-JR-lUZ" secondAttribute="leading" id="L8P-zP-NjY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zte-r5-9rZ" secondAttribute="trailing" id="Tqm-RR-Rpo"/>
                             <constraint firstItem="fa7-JR-lUZ" firstAttribute="top" secondItem="SJ6-n2-yRr" secondAttribute="bottom" constant="8" id="WaS-8G-WDF"/>
                             <constraint firstItem="SJ6-n2-yRr" firstAttribute="leading" secondItem="x6n-CN-EZg" secondAttribute="trailing" constant="4" id="Ymr-Xe-afc"/>
                             <constraint firstItem="s67-Xc-Kb4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="eIr-nb-ChV"/>
                             <constraint firstItem="x6n-CN-EZg" firstAttribute="leading" secondItem="9tE-mK-lUo" secondAttribute="trailing" constant="4" id="eML-Ji-SMs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zte-r5-9rZ" secondAttribute="bottom" constant="40" id="edM-Kk-WXs"/>
+                            <constraint firstItem="fPW-f0-sGO" firstAttribute="centerX" secondItem="fa7-JR-lUZ" secondAttribute="centerX" id="epe-DE-OA0"/>
                             <constraint firstItem="a7g-Rs-ND3" firstAttribute="centerX" secondItem="fa7-JR-lUZ" secondAttribute="centerX" id="kly-lx-SFf"/>
                             <constraint firstItem="fa7-JR-lUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="llI-eY-1uo"/>
                             <constraint firstItem="9tE-mK-lUo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="op5-3B-bNN"/>
@@ -167,15 +173,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s67-Xc-Kb4" secondAttribute="trailing" constant="16" id="qfd-dk-c3w"/>
                             <constraint firstItem="x6n-CN-EZg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="qna-Qb-2HV"/>
                             <constraint firstItem="9tE-mK-lUo" firstAttribute="width" secondItem="9tE-mK-lUo" secondAttribute="height" multiplier="1:1" id="qo7-qh-e5N"/>
+                            <constraint firstItem="fPW-f0-sGO" firstAttribute="bottom" secondItem="fa7-JR-lUZ" secondAttribute="bottom" id="qrZ-Kk-7ow"/>
                             <constraint firstItem="fa7-JR-lUZ" firstAttribute="top" secondItem="9tE-mK-lUo" secondAttribute="bottom" constant="8" id="s19-GI-6kc"/>
                             <constraint firstItem="9tE-mK-lUo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="sBI-wa-A3M"/>
                             <constraint firstItem="zte-r5-9rZ" firstAttribute="top" secondItem="fa7-JR-lUZ" secondAttribute="bottom" constant="32" id="srt-2t-qQK"/>
                             <constraint firstItem="SJ6-n2-yRr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="tsO-gf-eSe"/>
+                            <constraint firstItem="fPW-f0-sGO" firstAttribute="centerY" secondItem="fa7-JR-lUZ" secondAttribute="centerY" id="xXY-uz-N2P"/>
+                            <constraint firstItem="fPW-f0-sGO" firstAttribute="top" secondItem="fa7-JR-lUZ" secondAttribute="top" id="zHN-rl-L6o"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="flashButton" destination="9tE-mK-lUo" id="koB-rx-aZS"/>
                         <outlet property="flipButton" destination="SJ6-n2-yRr" id="34N-7H-QWF"/>
+                        <outlet property="gridButton" destination="U4Z-te-fVW" id="1ZI-kU-8RM"/>
+                        <outlet property="gridOverlay" destination="fPW-f0-sGO" id="MTm-zw-NSi"/>
+                        <outlet property="infoButton" destination="s67-Xc-Kb4" id="LTz-De-gpi"/>
                         <outlet property="photoFrame" destination="fa7-JR-lUZ" id="fes-1p-dkw"/>
                         <outlet property="previewGallery" destination="h5E-vo-tHs" id="MJH-tF-8KB"/>
                         <outlet property="timerButton" destination="x6n-CN-EZg" id="hAh-lH-8KW"/>

@@ -122,8 +122,26 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         initDefaultComposition()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.all //return the value as per the required orientation
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        if let videoPreviewLayerConnection = previewLayer.connection {
+            let deviceOrientation = UIDevice.current.orientation
+            guard let newVideoOrientation = AVCaptureVideoOrientation(rawValue: deviceOrientation.rawValue),
+                deviceOrientation.isPortrait || deviceOrientation.isLandscape else {
+                    return
+            }
+            
+            videoPreviewLayerConnection.videoOrientation = newVideoOrientation
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -193,6 +211,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     private func setUpCamera() {
         let session = AVCaptureSession()
+        session.sessionPreset = .photo
         
         if let device = AVCaptureDevice.default(for: .video) {
             do {
@@ -218,6 +237,33 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     private func capturePhoto() {
+        var currentDevice: UIDevice
+        currentDevice = .current
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        var deviceOrientation: UIDeviceOrientation
+        deviceOrientation = currentDevice.orientation
+        
+        var imageOrientation: AVCaptureVideoOrientation!
+        
+        if deviceOrientation == .portrait {
+            imageOrientation = .portrait
+            print("Device: Portrait")
+        } else if deviceOrientation == .landscapeLeft {
+            imageOrientation = .landscapeRight
+            print("Device: LandscapeLeft")
+        } else if deviceOrientation == .landscapeRight {
+            imageOrientation = .landscapeLeft
+            print("Device LandscapeRight")
+        } else if deviceOrientation == .portraitUpsideDown {
+            imageOrientation = .portraitUpsideDown
+            print("Device PortraitUpsideDown")
+        } else {
+            imageOrientation = .portrait
+        }
+        
+        if let photoOutputConnection = self.output.connection(with: .video) {
+            photoOutputConnection.videoOrientation = imageOrientation
+        }
         
         DispatchQueue.main.async {
             self.photoFrame.alpha = 0
@@ -240,16 +286,16 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             return
         }
         
-        let image = UIImage(data: data)
+        let image = UIImage(data: data)!
         
-        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
         self.previewGallery.alpha = 0
         
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.25) {
                 self.previewGallery.alpha = 1
-                self.previewGallery?.image = image! as UIImage
+                self.previewGallery?.image = image as UIImage
             }
         }
     }
@@ -327,6 +373,21 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             timerLabel.alpha = 0
             capturePhoto()
             self.timer.invalidate()
+        }
+    }
+    
+    func videoOrientation(for deviceOrientation: UIDeviceOrientation) -> AVCaptureVideoOrientation {
+        switch deviceOrientation {
+        case UIDeviceOrientation.portrait:
+            return AVCaptureVideoOrientation.portrait
+        case UIDeviceOrientation.landscapeLeft:
+            return AVCaptureVideoOrientation.landscapeRight
+        case UIDeviceOrientation.landscapeRight:
+            return AVCaptureVideoOrientation.landscapeLeft
+        case UIDeviceOrientation.portraitUpsideDown:
+            return AVCaptureVideoOrientation.portraitUpsideDown
+        default:
+            return AVCaptureVideoOrientation.portrait
         }
     }
 }

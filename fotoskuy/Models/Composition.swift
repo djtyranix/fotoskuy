@@ -12,5 +12,5 @@ struct Composition {
     let compositionSubtitle: String
     let compositionBodyText: String
     let compositionImageName: String
-    let compositionGridImageName: String
+    var compositionGridImageName: String
 }

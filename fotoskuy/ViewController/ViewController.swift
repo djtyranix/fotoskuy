@@ -116,12 +116,11 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     @IBAction func rotatePressed(_ sender: UIButton) {
+        flipOrRotateGrid()
     }
     
     @IBAction func focusAndExposeTap(_ sender: UITapGestureRecognizer) {
         let devicePoint = previewLayer.captureDevicePointConverted(fromLayerPoint: sender.location(in: sender.view))
-        
-        print(devicePoint)
         
         focus(with: .autoFocus, exposureMode: .autoExpose, at: devicePoint, monitorSubjectAreaChange: true)
     }
@@ -135,6 +134,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         checkCameraPermission()
         initCompositionArray()
         initDefaultComposition()
+        checkIfFlipGridSupported()
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -262,16 +262,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         if deviceOrientation == .portrait {
             imageOrientation = .portrait
-            print("Device: Portrait")
         } else if deviceOrientation == .landscapeLeft {
             imageOrientation = .landscapeRight
-            print("Device: LandscapeLeft")
         } else if deviceOrientation == .landscapeRight {
             imageOrientation = .landscapeLeft
-            print("Device LandscapeRight")
         } else if deviceOrientation == .portraitUpsideDown {
             imageOrientation = .portraitUpsideDown
-            print("Device PortraitUpsideDown")
         } else {
             imageOrientation = .portrait
         }
@@ -401,8 +397,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @objc private func updateComposition(notification: NSNotification) {
         let receivedData = notification.userInfo
         if let selectedComposition = receivedData!["selectedComposition"] as? Composition {
-//            print(selectedComposition.compositionName)
-            
             if selectedComposition.compositionName == "Off" {
                 gridOverlay.alpha = 0
                 gridButton.tintColor = UIColor(hex: "#8E8D94FF")
@@ -418,22 +412,51 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             }
             
             self.currentComposition = selectedComposition
-            
+            checkIfFlipGridSupported()
         }
     }
     
-    func videoOrientation(for deviceOrientation: UIDeviceOrientation) -> AVCaptureVideoOrientation {
-        switch deviceOrientation {
-        case UIDeviceOrientation.portrait:
-            return AVCaptureVideoOrientation.portrait
-        case UIDeviceOrientation.landscapeLeft:
-            return AVCaptureVideoOrientation.landscapeRight
-        case UIDeviceOrientation.landscapeRight:
-            return AVCaptureVideoOrientation.landscapeLeft
-        case UIDeviceOrientation.portraitUpsideDown:
-            return AVCaptureVideoOrientation.portraitUpsideDown
-        default:
-            return AVCaptureVideoOrientation.portrait
+    private func checkIfFlipGridSupported() {
+        if currentComposition.compositionImageName == "GoldenSpiral" || currentComposition.compositionImageName == "GoldenTriangle" {
+            flipButton.isEnabled = true
+        } else {
+            flipButton.isEnabled = false
+        }
+    }
+    
+    private func flipOrRotateGrid() {
+        if currentComposition.compositionImageName == "GoldenSpiral" {
+            switch currentComposition.compositionGridImageName {
+            case "GoldenSpiralGrid":
+                currentComposition.compositionGridImageName = "GoldenSpiralGrid1"
+                gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
+            case "GoldenSpiralGrid1":
+                currentComposition.compositionGridImageName = "GoldenSpiralGrid2"
+                gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
+            case "GoldenSpiralGrid2":
+                currentComposition.compositionGridImageName = "GoldenSpiralGrid3"
+                gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
+            case "GoldenSpiralGrid3":
+                currentComposition.compositionGridImageName = "GoldenSpiralGrid"
+                gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
+            default:
+                currentComposition.compositionGridImageName = "GoldenSpiralGrid"
+                gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
+            }
+        }
+        
+        if currentComposition.compositionImageName == "GoldenTriangle" {
+            switch currentComposition.compositionGridImageName {
+            case "GoldenTriangleGrid":
+                currentComposition.compositionGridImageName = "GoldenTriangleGrid1"
+                gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
+            case "GoldenTriangleGrid1":
+                currentComposition.compositionGridImageName = "GoldenTriangleGrid"
+                gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
+            default:
+                currentComposition.compositionGridImageName = "GoldenTriangleGrid"
+                gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
+            }
         }
     }
 }

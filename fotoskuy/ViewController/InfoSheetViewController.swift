@@ -37,6 +37,7 @@ class InfoSheetViewController: UIViewController {
         compositionName.text = composition.compositionName
         compositionSubtitle.text = composition.compositionSubtitle
         compositionBodyText.text = composition.compositionBodyText
+        compositionImageExample.image = UIImage(named: composition.compositionImageName)
     }
 
 }

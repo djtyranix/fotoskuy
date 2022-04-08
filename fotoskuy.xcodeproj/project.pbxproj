@@ -12,6 +12,10 @@
 		A40D970D27FBFD370023969C /* InfoSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40D970C27FBFD370023969C /* InfoSheet.storyboard */; };
 		A4B2784127FD96FA00D0FD89 /* InfoSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */; };
 		A84EC05F27FF38DD00CCA375 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC05E27FF38DD00CCA375 /* Extensions.swift */; };
+		A84EC06127FFDDBB00CCA375 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A84EC06027FFDDBB00CCA375 /* Timer.storyboard */; };
+		A84EC06327FFDF8200CCA375 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC06227FFDF8200CCA375 /* TimerViewController.swift */; };
+		A84EC06727FFEDA200CCA375 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC06627FFEDA200CCA375 /* TimerData.swift */; };
+		A84EC0692800044B00CCA375 /* SingletonTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC0682800044B00CCA375 /* SingletonTimer.swift */; };
 		A86B47C327FE717A005B5F5A /* CompositionInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86B47C227FE717A005B5F5A /* CompositionInit.swift */; };
 		A8D5BAE227FDE9B50087F307 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5BAE127FDE9B50087F307 /* Composition.swift */; };
 		A8DC211827FA86120070D545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC211727FA86120070D545 /* AppDelegate.swift */; };
@@ -28,6 +32,10 @@
 		A40D970C27FBFD370023969C /* InfoSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoSheet.storyboard; sourceTree = "<group>"; };
 		A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetViewController.swift; sourceTree = "<group>"; };
 		A84EC05E27FF38DD00CCA375 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A84EC06027FFDDBB00CCA375 /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
+		A84EC06227FFDF8200CCA375 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		A84EC06627FFEDA200CCA375 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
+		A84EC0682800044B00CCA375 /* SingletonTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonTimer.swift; sourceTree = "<group>"; };
 		A86B47C227FE717A005B5F5A /* CompositionInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionInit.swift; sourceTree = "<group>"; };
 		A8D5BAE127FDE9B50087F307 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		A8DC211427FA86120070D545 /* fotoskuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fotoskuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +64,7 @@
 			children = (
 				A86B47C227FE717A005B5F5A /* CompositionInit.swift */,
 				A84EC05E27FF38DD00CCA375 /* Extensions.swift */,
+				A84EC0682800044B00CCA375 /* SingletonTimer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -66,6 +75,7 @@
 				0E0B1D3727FE9D3E00E07930 /* GalleryViewController.swift */,
 				A8DC211B27FA86120070D545 /* ViewController.swift */,
 				A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */,
+				A84EC06227FFDF8200CCA375 /* TimerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -77,6 +87,7 @@
 				A8DC211D27FA86120070D545 /* Main.storyboard */,
 				A8DC212227FA86150070D545 /* LaunchScreen.storyboard */,
 				A40D970C27FBFD370023969C /* InfoSheet.storyboard */,
+				A84EC06027FFDDBB00CCA375 /* Timer.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -94,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				A8D5BAE127FDE9B50087F307 /* Composition.swift */,
+				A84EC06627FFEDA200CCA375 /* TimerData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +202,7 @@
 				A8DC212427FA86150070D545 /* LaunchScreen.storyboard in Resources */,
 				0E0B1D3627FE9D2900E07930 /* GalleryView.storyboard in Resources */,
 				A8DC212127FA86150070D545 /* Assets.xcassets in Resources */,
+				A84EC06127FFDDBB00CCA375 /* Timer.storyboard in Resources */,
 				A8DC211F27FA86120070D545 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +215,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DC211C27FA86120070D545 /* ViewController.swift in Sources */,
+				A84EC06327FFDF8200CCA375 /* TimerViewController.swift in Sources */,
+				A84EC0692800044B00CCA375 /* SingletonTimer.swift in Sources */,
 				0E0B1D3827FE9D3E00E07930 /* GalleryViewController.swift in Sources */,
+				A84EC06727FFEDA200CCA375 /* TimerData.swift in Sources */,
 				A8DC211827FA86120070D545 /* AppDelegate.swift in Sources */,
 				A84EC05F27FF38DD00CCA375 /* Extensions.swift in Sources */,
 				A8DC211A27FA86120070D545 /* SceneDelegate.swift in Sources */,

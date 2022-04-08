@@ -17,7 +17,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fa7-JR-lUZ">
                                 <rect key="frame" x="16" y="118.99999999999997" width="358" height="477.33333333333326"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES"/>
                                 </accessibility>
@@ -60,6 +60,12 @@
                                     <action selector="flashPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HX4-uC-TSt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7g-Rs-ND3">
+                                <rect key="frame" x="113.33333333333333" y="271.66666666666669" width="163.66666666666669" height="172"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="144"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6n-CN-EZg">
                                 <rect key="frame" x="71" y="60" width="51" height="51"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,8 +158,10 @@
                             <constraint firstItem="s67-Xc-Kb4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="eIr-nb-ChV"/>
                             <constraint firstItem="x6n-CN-EZg" firstAttribute="leading" secondItem="9tE-mK-lUo" secondAttribute="trailing" constant="4" id="eML-Ji-SMs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zte-r5-9rZ" secondAttribute="bottom" constant="40" id="edM-Kk-WXs"/>
+                            <constraint firstItem="a7g-Rs-ND3" firstAttribute="centerX" secondItem="fa7-JR-lUZ" secondAttribute="centerX" id="kly-lx-SFf"/>
                             <constraint firstItem="fa7-JR-lUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="llI-eY-1uo"/>
                             <constraint firstItem="9tE-mK-lUo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="op5-3B-bNN"/>
+                            <constraint firstItem="a7g-Rs-ND3" firstAttribute="centerY" secondItem="fa7-JR-lUZ" secondAttribute="centerY" id="owg-kT-G5r"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fa7-JR-lUZ" secondAttribute="trailing" constant="16" id="pjW-36-sDZ"/>
                             <constraint firstItem="fa7-JR-lUZ" firstAttribute="top" secondItem="s67-Xc-Kb4" secondAttribute="bottom" constant="8" id="qER-xX-Zxd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s67-Xc-Kb4" secondAttribute="trailing" constant="16" id="qfd-dk-c3w"/>
@@ -171,6 +179,7 @@
                         <outlet property="photoFrame" destination="fa7-JR-lUZ" id="fes-1p-dkw"/>
                         <outlet property="previewGallery" destination="h5E-vo-tHs" id="MJH-tF-8KB"/>
                         <outlet property="timerButton" destination="x6n-CN-EZg" id="hAh-lH-8KW"/>
+                        <outlet property="timerLabel" destination="a7g-Rs-ND3" id="rXb-eC-lXN"/>
                         <segue destination="HwY-JF-9Lr" kind="presentation" identifier="goToInfoSheet" modalPresentationStyle="automatic" modalTransitionStyle="coverVertical" id="zf3-VY-LAw"/>
                     </connections>
                 </viewController>
@@ -193,7 +202,16 @@
             </objects>
             <point key="canvasLocation" x="714" y="51"/>
         </scene>
+        <!--timerView-->
+        <scene sceneID="XrN-bP-MF9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="timerView" storyboardName="Timer" referencedIdentifier="timerView" id="URw-Lt-dGn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PnE-1N-j7h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701" y="-84"/>
+        </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="ShutterButton" width="72" height="72"/>
         <image name="bolt.circle" catalog="system" width="128" height="121"/>

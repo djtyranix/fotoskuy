@@ -12,6 +12,7 @@
 		0E1E5682280021E900B0B47D /* CompositionChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E5681280021E900B0B47D /* CompositionChooserViewController.swift */; };
 		0E1E5684280021F600B0B47D /* CompositionChooser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E1E5683280021F600B0B47D /* CompositionChooser.storyboard */; };
 		0E1E568628002DB000B0B47D /* SingletonComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E568528002DB000B0B47D /* SingletonComposition.swift */; };
+		0EF8884A2800565400A60355 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF888492800565400A60355 /* CustomCollectionViewCell.swift */; };
 		A40D970D27FBFD370023969C /* InfoSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40D970C27FBFD370023969C /* InfoSheet.storyboard */; };
 		A4B2784127FD96FA00D0FD89 /* InfoSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */; };
 		A84EC05F27FF38DD00CCA375 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC05E27FF38DD00CCA375 /* Extensions.swift */; };
@@ -35,6 +36,7 @@
 		0E1E5681280021E900B0B47D /* CompositionChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionChooserViewController.swift; sourceTree = "<group>"; };
 		0E1E5683280021F600B0B47D /* CompositionChooser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompositionChooser.storyboard; sourceTree = "<group>"; };
 		0E1E568528002DB000B0B47D /* SingletonComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonComposition.swift; sourceTree = "<group>"; };
+		0EF888492800565400A60355 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		A40D970C27FBFD370023969C /* InfoSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoSheet.storyboard; sourceTree = "<group>"; };
 		A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetViewController.swift; sourceTree = "<group>"; };
 		A84EC05E27FF38DD00CCA375 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		A8DC210B27FA86120070D545 = {
 			isa = PBXGroup;
 			children = (
+				0EF888492800565400A60355 /* CustomCollectionViewCell.swift */,
 				A8DC211627FA86120070D545 /* fotoskuy */,
 				A8DC211527FA86120070D545 /* Products */,
 			);
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DC211C27FA86120070D545 /* ViewController.swift in Sources */,
+				0EF8884A2800565400A60355 /* CustomCollectionViewCell.swift in Sources */,
 				A84EC06327FFDF8200CCA375 /* TimerViewController.swift in Sources */,
 				A84EC0692800044B00CCA375 /* SingletonTimer.swift in Sources */,
 				0E1E5682280021E900B0B47D /* CompositionChooserViewController.swift in Sources */,

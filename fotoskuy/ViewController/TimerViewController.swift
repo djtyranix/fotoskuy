@@ -81,6 +81,7 @@ class TimerViewController: UIViewController, UITableViewDataSource, UITableViewD
         for (index, timer) in timers.enumerated() {
             if timer == selectedTimer.timerAmount {
                 selectedIndex = index
+                break
             }
         }
         

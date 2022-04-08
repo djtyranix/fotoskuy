@@ -121,8 +121,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBAction func focusAndExposeTap(_ sender: UITapGestureRecognizer) {
         let devicePoint = previewLayer.captureDevicePointConverted(fromLayerPoint: sender.location(in: sender.view))
         
-        print(devicePoint)
-        
         focus(with: .autoFocus, exposureMode: .autoExpose, at: devicePoint, monitorSubjectAreaChange: true)
     }
     
@@ -262,16 +260,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         if deviceOrientation == .portrait {
             imageOrientation = .portrait
-            print("Device: Portrait")
         } else if deviceOrientation == .landscapeLeft {
             imageOrientation = .landscapeRight
-            print("Device: LandscapeLeft")
         } else if deviceOrientation == .landscapeRight {
             imageOrientation = .landscapeLeft
-            print("Device LandscapeRight")
         } else if deviceOrientation == .portraitUpsideDown {
             imageOrientation = .portraitUpsideDown
-            print("Device PortraitUpsideDown")
         } else {
             imageOrientation = .portrait
         }
@@ -401,8 +395,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @objc private func updateComposition(notification: NSNotification) {
         let receivedData = notification.userInfo
         if let selectedComposition = receivedData!["selectedComposition"] as? Composition {
-//            print(selectedComposition.compositionName)
-            
             if selectedComposition.compositionName == "Off" {
                 gridOverlay.alpha = 0
                 gridButton.tintColor = UIColor(hex: "#8E8D94FF")
@@ -418,22 +410,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             }
             
             self.currentComposition = selectedComposition
-            
-        }
-    }
-    
-    func videoOrientation(for deviceOrientation: UIDeviceOrientation) -> AVCaptureVideoOrientation {
-        switch deviceOrientation {
-        case UIDeviceOrientation.portrait:
-            return AVCaptureVideoOrientation.portrait
-        case UIDeviceOrientation.landscapeLeft:
-            return AVCaptureVideoOrientation.landscapeRight
-        case UIDeviceOrientation.landscapeRight:
-            return AVCaptureVideoOrientation.landscapeLeft
-        case UIDeviceOrientation.portraitUpsideDown:
-            return AVCaptureVideoOrientation.portraitUpsideDown
-        default:
-            return AVCaptureVideoOrientation.portrait
         }
     }
 }

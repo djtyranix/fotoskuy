@@ -18,21 +18,16 @@ class CompositonChooserViewController: UIViewController, UITableViewDataSource, 
     var selectedComposition = SingletonComposition.sharedInstance.composition
     
     @IBAction func dismissModal(_ sender: UIButton) {
-//        let userInfo = ["selectedTimer" : selectedTimer]
-//        NotificationCenter.default.post(name: Notification.Name("timer"), object: nil, userInfo: userInfo)
+        let userInfo = ["selectedComposition" : selectedComposition]
+        NotificationCenter.default.post(name: Notification.Name("composition"), object: nil, userInfo: userInfo)
         dismiss(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(selectedComposition.compositionName)
-        
         addCompositionArray()
-
         selectedRow = checkCurrentIndex()
-        
-        print(selectedRow)
         
         compositionTable.register(UITableViewCell.self, forCellReuseIdentifier: "CompositionTableCell")
         compositionTable.delegate = self
@@ -80,8 +75,10 @@ class CompositonChooserViewController: UIViewController, UITableViewDataSource, 
         for (index, composition) in compositionCollections.enumerated() {
             if composition.compositionName == selectedComposition.compositionName {
                 selectedIndex = index
+                break
             }
         }
+        
         return selectedIndex
     }
     

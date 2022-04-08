@@ -20,27 +20,27 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Composition Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW9-gP-ezu">
-                                        <rect key="frame" x="105.33333333333333" y="47" width="179.33333333333337" height="24"/>
+                                        <rect key="frame" x="105.33333333333333" y="48" width="179.33333333333337" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wvC-pV-yFC">
-                                        <rect key="frame" x="32" y="86.999999999999986" width="326" height="244.66666666666663"/>
+                                        <rect key="frame" x="32" y="87.999999999999986" width="326" height="244.66666666666663"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="wvC-pV-yFC" secondAttribute="height" multiplier="4:3" id="m0J-RG-k4o"/>
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="The Rule of Thirds places your subject on the left-third or right-third of the frame. " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuT-R4-VqK">
-                                        <rect key="frame" x="32" y="347.66666666666669" width="326" height="80.666666666666686"/>
+                                        <rect key="frame" x="32" y="348.66666666666669" width="326" height="80.666666666666686"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-sh-fxA">
-                                        <rect key="frame" x="32" y="436.33333333333326" width="326" height="297.66666666666674"/>
+                                        <rect key="frame" x="32" y="437.33333333333326" width="326" height="296.66666666666674"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">The Rule of Thirds brings focus and balance to your landscape shots. This photo, by adventure photographer Jimmy Chin, uses the Rule of Thirds, where the main subject is positioned along the right vertical-third line.
 
@@ -52,7 +52,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xr3-El-OnY">
-                                        <rect key="frame" x="313.66666666666669" y="15" width="60.333333333333314" height="32"/>
+                                        <rect key="frame" x="313.66666666666669" y="16" width="60.333333333333314" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Done">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
@@ -78,7 +78,7 @@
                                     <constraint firstItem="wvC-pV-yFC" firstAttribute="top" secondItem="FW9-gP-ezu" secondAttribute="bottom" constant="16" id="u3o-3w-PBd"/>
                                     <constraint firstAttribute="trailing" secondItem="EuT-R4-VqK" secondAttribute="trailing" constant="32" id="w2E-pa-C7F"/>
                                     <constraint firstItem="FW9-gP-ezu" firstAttribute="top" secondItem="Xr3-El-OnY" secondAttribute="bottom" id="wDF-K3-gPi"/>
-                                    <constraint firstItem="Xr3-El-OnY" firstAttribute="top" secondItem="c1L-w9-xVo" secondAttribute="top" constant="15" id="xs5-4V-L1a"/>
+                                    <constraint firstItem="Xr3-El-OnY" firstAttribute="top" secondItem="c1L-w9-xVo" secondAttribute="top" constant="16" id="xs5-4V-L1a"/>
                                     <constraint firstItem="EuT-R4-VqK" firstAttribute="top" secondItem="wvC-pV-yFC" secondAttribute="bottom" constant="16" id="z7y-SN-QtB"/>
                                 </constraints>
                             </view>

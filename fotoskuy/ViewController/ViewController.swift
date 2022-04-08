@@ -32,6 +32,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     // Flash Mode
     var flashMode = 0 // Auto = 0, On = 1, Off = 2
     
+    // Timer Selection
+    var timerDuration = 0
+    var timerCounter = 0
+    var selectedTimer: TimerData!
+    var timer: Timer!
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
     @IBOutlet weak var previewGallery: UIImageView!
     
     // Camera Frame
@@ -39,7 +47,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     // Shutter Button
     @IBAction func shutterButtonPressed(_ sender: UIButton) {
-        capturePhoto()
+        if timerDuration == 0 {
+            capturePhoto()
+        } else {
+            timerCounter = timerDuration
+            timerLabel.text = String(timerCounter)
+            timerLabel.alpha = 1
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerlabel), userInfo: nil, repeats: true)
+        }
     }
     
     @IBOutlet weak var flashButton: UIButton!
@@ -73,6 +88,16 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     @IBAction func timerPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Timer", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "timerView")
+        
+        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTimer(notification:)), name: Notification.Name("timer"), object: nil)
+        
+        self.present(viewController, animated: true)
     }
     
     @IBAction func rotatePressed(_ sender: UIButton) {
@@ -89,6 +114,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        timerLabel.alpha = 0
+        
         photoFrame.layer.addSublayer(previewLayer)
         checkCameraPermission()
         initCompositionArray()
@@ -271,6 +298,35 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             return .off
         default:
             return .auto
+        }
+    }
+    
+    @objc private func updateTimer(notification: NSNotification) {
+        let receivedData = notification.userInfo
+        if let selectedTimer = receivedData!["selectedTimer"] as? TimerData {
+            let isActive = selectedTimer.isTimerActive
+            
+            if isActive {
+                timerButton.tintColor = UIColor(hex: "#A5FF00FF")
+            } else {
+                timerButton.tintColor = .white
+            }
+            
+            timerDuration = selectedTimer.timerAmount
+            self.selectedTimer = selectedTimer
+        }
+    }
+    
+    @objc private func updateTimerlabel() {
+        print("Timer Activated")
+        timerCounter -= 1
+        
+        if timerCounter > 0 {
+            timerLabel.text = String(timerCounter)
+        } else if timerCounter == 0 {
+            timerLabel.alpha = 0
+            capturePhoto()
+            self.timer.invalidate()
         }
     }
 }

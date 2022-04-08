@@ -17,7 +17,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
-// bikin 3x3 grid
+        // bikin 3x3 grid
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
         layout.itemSize = CGSize(width: (view.frame.size.width/3)-4, height: (view.frame.size.width/3)-4)
@@ -41,7 +41,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt IndexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: IndexPath) as! CustomCollectionViewCell
-        cell.configure(label: "Custom \(IndexPath.row)")
+        cell.configure(label: "Image \(IndexPath.row)")
         return cell
     }
 }

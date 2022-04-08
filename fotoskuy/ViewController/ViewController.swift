@@ -287,6 +287,15 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             photoOutputConnection.videoOrientation = imageOrientation
         }
         
+        let photoSettings = AVCapturePhotoSettings()
+        
+        photoSettings.flashMode = determineFlashMode()
+        
+        output.capturePhoto(with: photoSettings,
+                            delegate: self)
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
         DispatchQueue.main.async {
             self.photoFrame.alpha = 0
             
@@ -294,13 +303,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                 self.photoFrame.alpha = 1
             }
         }
-        
-        let photoSettings = AVCapturePhotoSettings()
-        
-        photoSettings.flashMode = determineFlashMode()
-        
-        output.capturePhoto(with: photoSettings,
-                            delegate: self)
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {

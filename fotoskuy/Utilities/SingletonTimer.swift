@@ -10,9 +10,20 @@ import Foundation
 class SingletonTimer {
     var timer = TimerData(isTimerActive: false, timerAmount: 0)
     
-    static let sharedInstance = SingletonTimer()
+    struct Static {
+        static var instance: SingletonTimer?
+    }
     
-    private init() {
+    class var sharedInstance: SingletonTimer {
+        if Static.instance == nil {
+            Static.instance = SingletonTimer()
+        }
         
+        return Static.instance!
+    }
+    
+    func disposeSingleton() {
+        SingletonTimer.Static.instance = nil
+        print("SingletonTimer Disposed")
     }
 }

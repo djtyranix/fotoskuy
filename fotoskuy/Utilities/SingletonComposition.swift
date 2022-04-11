@@ -14,9 +14,20 @@ class SingletonComposition {
                                   compositionImageName: "RuleOfThirds",
                                   compositionGridImageName: "RuleOfThirdsGrid")
     
-    static let sharedInstance = SingletonComposition()
+    struct Static {
+        static var instance: SingletonComposition?
+    }
     
-    private init() {
+    class var sharedInstance: SingletonComposition {
+        if Static.instance == nil {
+            Static.instance = SingletonComposition()
+        }
         
+        return Static.instance!
+    }
+    
+    func disposeSingleton() {
+        SingletonComposition.Static.instance = nil
+        print("SingletonTimer Disposed")
     }
 }

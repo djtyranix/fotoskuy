@@ -12,7 +12,6 @@
 		0E1E5682280021E900B0B47D /* CompositionChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E5681280021E900B0B47D /* CompositionChooserViewController.swift */; };
 		0E1E5684280021F600B0B47D /* CompositionChooser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E1E5683280021F600B0B47D /* CompositionChooser.storyboard */; };
 		0E1E568628002DB000B0B47D /* SingletonComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E568528002DB000B0B47D /* SingletonComposition.swift */; };
-		0EF8884A2800565400A60355 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF888492800565400A60355 /* CustomCollectionViewCell.swift */; };
 		A40D970D27FBFD370023969C /* InfoSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40D970C27FBFD370023969C /* InfoSheet.storyboard */; };
 		A4B2784127FD96FA00D0FD89 /* InfoSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */; };
 		A84EC05F27FF38DD00CCA375 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC05E27FF38DD00CCA375 /* Extensions.swift */; };
@@ -21,6 +20,9 @@
 		A84EC06727FFEDA200CCA375 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC06627FFEDA200CCA375 /* TimerData.swift */; };
 		A84EC0692800044B00CCA375 /* SingletonTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC0682800044B00CCA375 /* SingletonTimer.swift */; };
 		A86B47C327FE717A005B5F5A /* CompositionInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86B47C227FE717A005B5F5A /* CompositionInit.swift */; };
+		A8CB739B2803CA2200A77030 /* PhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB739A2803CA2200A77030 /* PhotoItemCell.swift */; };
+		A8CB739D2803D5F400A77030 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB739C2803D5F400A77030 /* ImagePreviewViewController.swift */; };
+		A8CB739F2803D9B500A77030 /* ImagePreviewFullViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB739E2803D9B500A77030 /* ImagePreviewFullViewCell.swift */; };
 		A8D5BAE227FDE9B50087F307 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5BAE127FDE9B50087F307 /* Composition.swift */; };
 		A8DC211827FA86120070D545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC211727FA86120070D545 /* AppDelegate.swift */; };
 		A8DC211A27FA86120070D545 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC211927FA86120070D545 /* SceneDelegate.swift */; };
@@ -36,7 +38,6 @@
 		0E1E5681280021E900B0B47D /* CompositionChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionChooserViewController.swift; sourceTree = "<group>"; };
 		0E1E5683280021F600B0B47D /* CompositionChooser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompositionChooser.storyboard; sourceTree = "<group>"; };
 		0E1E568528002DB000B0B47D /* SingletonComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonComposition.swift; sourceTree = "<group>"; };
-		0EF888492800565400A60355 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		A40D970C27FBFD370023969C /* InfoSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoSheet.storyboard; sourceTree = "<group>"; };
 		A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetViewController.swift; sourceTree = "<group>"; };
 		A84EC05E27FF38DD00CCA375 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -45,6 +46,9 @@
 		A84EC06627FFEDA200CCA375 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
 		A84EC0682800044B00CCA375 /* SingletonTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonTimer.swift; sourceTree = "<group>"; };
 		A86B47C227FE717A005B5F5A /* CompositionInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionInit.swift; sourceTree = "<group>"; };
+		A8CB739A2803CA2200A77030 /* PhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemCell.swift; sourceTree = "<group>"; };
+		A8CB739C2803D5F400A77030 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
+		A8CB739E2803D9B500A77030 /* ImagePreviewFullViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewFullViewCell.swift; sourceTree = "<group>"; };
 		A8D5BAE127FDE9B50087F307 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		A8DC211427FA86120070D545 /* fotoskuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fotoskuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC211727FA86120070D545 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		A8CB73992803CA1400A77030 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB739A2803CA2200A77030 /* PhotoItemCell.swift */,
+				A8CB739E2803D9B500A77030 /* ImagePreviewFullViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		A8D5BADD27FDE9120087F307 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 				A4B2784027FD96FA00D0FD89 /* InfoSheetViewController.swift */,
 				A84EC06227FFDF8200CCA375 /* TimerViewController.swift */,
 				0E1E5681280021E900B0B47D /* CompositionChooserViewController.swift */,
+				A8CB739C2803D5F400A77030 /* ImagePreviewViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -124,7 +138,6 @@
 		A8DC210B27FA86120070D545 = {
 			isa = PBXGroup;
 			children = (
-				0EF888492800565400A60355 /* CustomCollectionViewCell.swift */,
 				A8DC211627FA86120070D545 /* fotoskuy */,
 				A8DC211527FA86120070D545 /* Products */,
 			);
@@ -141,6 +154,7 @@
 		A8DC211627FA86120070D545 /* fotoskuy */ = {
 			isa = PBXGroup;
 			children = (
+				A8CB73992803CA1400A77030 /* Cell */,
 				A86B47C127FE715F005B5F5A /* Utilities */,
 				A8D5BAE027FDE98D0087F307 /* Models */,
 				A8D5BADF27FDE92A0087F307 /* Delegates */,
@@ -228,16 +242,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DC211C27FA86120070D545 /* ViewController.swift in Sources */,
-				0EF8884A2800565400A60355 /* CustomCollectionViewCell.swift in Sources */,
 				A84EC06327FFDF8200CCA375 /* TimerViewController.swift in Sources */,
 				A84EC0692800044B00CCA375 /* SingletonTimer.swift in Sources */,
 				0E1E5682280021E900B0B47D /* CompositionChooserViewController.swift in Sources */,
+				A8CB739D2803D5F400A77030 /* ImagePreviewViewController.swift in Sources */,
 				0E0B1D3827FE9D3E00E07930 /* GalleryViewController.swift in Sources */,
 				A84EC06727FFEDA200CCA375 /* TimerData.swift in Sources */,
 				A8DC211827FA86120070D545 /* AppDelegate.swift in Sources */,
+				A8CB739B2803CA2200A77030 /* PhotoItemCell.swift in Sources */,
 				A84EC05F27FF38DD00CCA375 /* Extensions.swift in Sources */,
 				A8DC211A27FA86120070D545 /* SceneDelegate.swift in Sources */,
 				A4B2784127FD96FA00D0FD89 /* InfoSheetViewController.swift in Sources */,
+				A8CB739F2803D9B500A77030 /* ImagePreviewFullViewCell.swift in Sources */,
 				A86B47C327FE717A005B5F5A /* CompositionInit.swift in Sources */,
 				0E1E568628002DB000B0B47D /* SingletonComposition.swift in Sources */,
 				A8D5BAE227FDE9B50087F307 /* Composition.swift in Sources */,

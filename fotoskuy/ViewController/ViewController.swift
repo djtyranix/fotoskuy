@@ -204,7 +204,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             case .denied:
                 break
             case .authorized:
-                setUpCamera()
+                checkPhotoLibraryPermission()
             @unknown default:
                 break
         }
@@ -220,6 +220,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                     
                     DispatchQueue.main.async {
                         self.setUpCamera()
+                        self.startPhotoCaching()
                     }
                 }
             case .restricted:
@@ -228,10 +229,34 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                 break
             case .authorized:
                 setUpCamera()
+                startPhotoCaching()
             case .limited:
                 break
         @unknown default:
                 break
+        }
+    }
+    
+    private func startPhotoCaching() {
+        DispatchQueue.global(qos: .background).async {
+            let imgManager = PHCachingImageManager()
+            var phAssetArray = [PHAsset]()
+            
+            let requestOptions = PHImageRequestOptions()
+            requestOptions.isSynchronous = true
+            requestOptions.deliveryMode = .opportunistic
+            
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            
+            for i in 0..<fetchResult.count {
+                phAssetArray.append(fetchResult.object(at: i))
+            }
+            
+            print("Starting photo caching")
+            imgManager.startCachingImages(for: phAssetArray, targetSize: CGSize(width: 512, height: 512), contentMode: .aspectFill, options: requestOptions)
         }
     }
     

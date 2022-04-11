@@ -259,7 +259,6 @@
             <point key="canvasLocation" x="701" y="-84"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="ShutterButton" width="72" height="72"/>
         <image name="bolt.circle" catalog="system" width="128" height="121"/>

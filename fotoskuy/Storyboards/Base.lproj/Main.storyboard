@@ -111,9 +111,10 @@
                                             <action selector="shutterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dCI-h5-CEs"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-vo-tHs">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-vo-tHs">
                                         <rect key="frame" x="40" y="15.333333333333258" width="67" height="67"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="h5E-vo-tHs" secondAttribute="height" multiplier="1:1" id="P41-0J-wcT"/>
                                         </constraints>
@@ -123,6 +124,9 @@
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="tMf-Re-0QK" appends="YES" id="Zoo-wN-JUE"/>
+                                        </connections>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4Z-te-fVW">
                                         <rect key="frame" x="279" y="11.333333333333258" width="75" height="75"/>
@@ -133,15 +137,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="gridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eja-ya-fcg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWe-4l-uU1">
-                                        <rect key="frame" x="40" y="15" width="67" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
-                                        <connections>
-                                            <segue destination="h3F-9v-acf" kind="show" id="yH8-Fw-c19"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -227,6 +222,12 @@
                         <action selector="focusAndExposeTap:" destination="BYZ-38-t0r" id="KrF-rv-k7Q"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="tMf-Re-0QK">
+                    <connections>
+                        <action selector="previewPressed:" destination="BYZ-38-t0r" id="8wu-fd-sHs"/>
+                        <segue destination="h3F-9v-acf" kind="show" identifier="goToGallery" id="bTS-ZA-thJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="40" y="51.18483412322275"/>
         </scene>
@@ -248,7 +249,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8v-gl-UMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="136"/>
+            <point key="canvasLocation" x="715" y="-20"/>
         </scene>
         <!--timerView-->
         <scene sceneID="XrN-bP-MF9">

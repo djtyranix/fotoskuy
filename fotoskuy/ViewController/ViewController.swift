@@ -125,6 +125,10 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         focus(with: .continuousAutoFocus, exposureMode: .continuousAutoExposure, at: devicePoint, monitorSubjectAreaChange: true)
     }
     
+    @IBAction func previewPressed(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "goToGallery", sender: sender)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

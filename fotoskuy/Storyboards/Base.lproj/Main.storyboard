@@ -113,7 +113,7 @@
                                     </button>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-vo-tHs">
                                         <rect key="frame" x="40" y="15.333333333333258" width="67" height="67"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="h5E-vo-tHs" secondAttribute="height" multiplier="1:1" id="P41-0J-wcT"/>

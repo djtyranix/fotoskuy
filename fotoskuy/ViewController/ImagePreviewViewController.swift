@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Photos
 
 class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
     var imageArray = [UIImage]()
+    var indexArray = [Int]()
     var passedContentOffset = IndexPath()
     
     override func viewDidLoad() {
@@ -22,8 +24,6 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
         
-        print(passedContentOffset.row)
-        
         previewCollectionView.collectionViewLayout = layout
         previewCollectionView.delegate = self
         previewCollectionView.dataSource = self
@@ -33,6 +33,8 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
         DispatchQueue.main.async {
             self.previewCollectionView.scrollToItem(at: self.passedContentOffset, at: .centeredHorizontally, animated: false)
         }
+        
+        reloadWithHDPicture(index: passedContentOffset.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,9 +81,68 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
         }, completion: nil)
     }
     
+    private func reloadWithHDPicture(index: Int) {
+        DispatchQueue.global(qos: .default).async {
+            let imgManager = PHImageManager.default()
+            
+            let requestOptions = PHImageRequestOptions()
+            requestOptions.isSynchronous = true
+            requestOptions.deliveryMode = .opportunistic
+            
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
+            
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
+            
+            imgManager.requestImage(for: fetchResult.object(at: index) as PHAsset, targetSize: CGSize(width: 1024, height: 1024), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
+                self.imageArray[index] = image!
+                self.indexArray.append(index)
+            })
+            
+            DispatchQueue.main.async {
+                self.previewCollectionView.reloadData()
+            }
+        }
+    }
+    
+    private func releaseMemoryFromBigImage(index: Int) {
+        DispatchQueue.global(qos: .background).async {
+            let imgManager = PHImageManager.default()
+            
+            let requestOptions = PHImageRequestOptions()
+            requestOptions.isSynchronous = true
+            requestOptions.deliveryMode = .opportunistic
+            
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
+            
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
+            
+            imgManager.requestImage(for: fetchResult.object(at: index) as PHAsset, targetSize: CGSize(width: 32, height: 32), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
+                self.imageArray[index] = image!
+            })
+        }
+    }
+    
     class UIFlowLayoutCustom: UICollectionViewFlowLayout {
         override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
             return true
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let indexes = previewCollectionView.indexPathsForVisibleItems
+//        print(indexes)
+        DispatchQueue.global().async {
+            for i in self.indexArray {
+                self.releaseMemoryFromBigImage(index: i)
+            }
+        }
+        
+        for i in indexes {
+            reloadWithHDPicture(index: i.row)
         }
     }
 }

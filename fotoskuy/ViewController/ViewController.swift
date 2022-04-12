@@ -223,8 +223,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                     }
                     
                     DispatchQueue.main.async {
-                        self.setUpCamera()
                         self.startPhotoCaching()
+                        self.setUpCamera()
                     }
                 }
             case .restricted:
@@ -232,8 +232,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             case .denied:
                 break
             case .authorized:
-                setUpCamera()
                 startPhotoCaching()
+                setUpCamera()
             case .limited:
                 break
         @unknown default:
@@ -244,7 +244,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     private func startPhotoCaching() {
         DispatchQueue.global(qos: .background).async {
             let imgManager = PHCachingImageManager()
-            var phAssetArray = [PHAsset]()
             
             let requestOptions = PHImageRequestOptions()
             requestOptions.isSynchronous = true
@@ -252,15 +251,20 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
             
-            let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
+//            print(fetchResult.count)
             
-            for i in 0..<fetchResult.count {
-                phAssetArray.append(fetchResult.object(at: i))
+            if fetchResult.count != 0 {
+                let phAssetsArray = fetchResult.objects(at: IndexSet(integersIn: 0...fetchResult.count-1))
+                
+                imgManager.startCachingImages(for: phAssetsArray, targetSize: CGSize(width: 32, height: 32), contentMode: .aspectFill, options: requestOptions)
+    //            imgManager.startCachingImages(for: phAssetsArray, targetSize: CGSize(width: 1024, height: 1024), contentMode: .aspectFill, options: requestOptions)
+                print("Starting photo caching")
             }
             
-            print("Starting photo caching")
-            imgManager.startCachingImages(for: phAssetArray, targetSize: CGSize(width: 512, height: 512), contentMode: .aspectFill, options: requestOptions)
+            
         }
     }
     
@@ -341,7 +345,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         let image = UIImage(data: data)!
         
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        SingletonCustomPhotoAlbum.sharedInstance.saveImage(image: image)
         
         self.previewGallery.alpha = 0
         

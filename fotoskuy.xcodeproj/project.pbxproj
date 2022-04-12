@@ -19,6 +19,7 @@
 		A84EC06327FFDF8200CCA375 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC06227FFDF8200CCA375 /* TimerViewController.swift */; };
 		A84EC06727FFEDA200CCA375 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC06627FFEDA200CCA375 /* TimerData.swift */; };
 		A84EC0692800044B00CCA375 /* SingletonTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84EC0682800044B00CCA375 /* SingletonTimer.swift */; };
+		A866155F28052B5E00ECA624 /* SingletonCustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866155E28052B5E00ECA624 /* SingletonCustomPhotoAlbum.swift */; };
 		A86B47C327FE717A005B5F5A /* CompositionInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86B47C227FE717A005B5F5A /* CompositionInit.swift */; };
 		A8CB739B2803CA2200A77030 /* PhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB739A2803CA2200A77030 /* PhotoItemCell.swift */; };
 		A8CB739D2803D5F400A77030 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB739C2803D5F400A77030 /* ImagePreviewViewController.swift */; };
@@ -45,6 +46,7 @@
 		A84EC06227FFDF8200CCA375 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		A84EC06627FFEDA200CCA375 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
 		A84EC0682800044B00CCA375 /* SingletonTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonTimer.swift; sourceTree = "<group>"; };
+		A866155E28052B5E00ECA624 /* SingletonCustomPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonCustomPhotoAlbum.swift; sourceTree = "<group>"; };
 		A86B47C227FE717A005B5F5A /* CompositionInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionInit.swift; sourceTree = "<group>"; };
 		A8CB739A2803CA2200A77030 /* PhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoItemCell.swift; sourceTree = "<group>"; };
 		A8CB739C2803D5F400A77030 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				A84EC05E27FF38DD00CCA375 /* Extensions.swift */,
 				A84EC0682800044B00CCA375 /* SingletonTimer.swift */,
 				0E1E568528002DB000B0B47D /* SingletonComposition.swift */,
+				A866155E28052B5E00ECA624 /* SingletonCustomPhotoAlbum.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DC211C27FA86120070D545 /* ViewController.swift in Sources */,
+				A866155F28052B5E00ECA624 /* SingletonCustomPhotoAlbum.swift in Sources */,
 				A84EC06327FFDF8200CCA375 /* TimerViewController.swift in Sources */,
 				A84EC0692800044B00CCA375 /* SingletonTimer.swift in Sources */,
 				0E1E5682280021E900B0B47D /* CompositionChooserViewController.swift in Sources */,

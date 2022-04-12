@@ -10,24 +10,22 @@ import Photos
 
 class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
     
-    var galleryCollectionView: UICollectionView!
+    @IBOutlet weak var galleryCollectionView: UICollectionView!
     var imageArray = [UIImage]()
+    @IBOutlet weak var labelNoPhotos: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Gallery"
         
+        labelNoPhotos.alpha = 0
+        
         let layout = UICollectionViewFlowLayout()
         
-        galleryCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        galleryCollectionView.collectionViewLayout = layout
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
         galleryCollectionView.register(PhotoItemCell.self, forCellWithReuseIdentifier: "Cell")
-        self.view.addSubview(galleryCollectionView)
-        
-        galleryCollectionView.autoresizingMask = UIView.AutoresizingMask(
-            rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue))
-        )
         
         grabPhotos()
     }
@@ -50,13 +48,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
-        
-        if UIDevice.current.orientation == UIDeviceOrientation.portrait {
-            return CGSize(width: width/4 - 1, height: width/4 - 1)
-        } else {
-            return CGSize(width: width/6 - 1, height: width/6 - 1)
-        }
+        return CGSize(width: collectionView.frame.width/4 - 1, height: collectionView.frame.width/4 - 1)
     }
     
     override func viewWillLayoutSubviews() {
@@ -86,21 +78,29 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
             
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
             
-            let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
             
             if fetchResult.count > 0 {
                 for i in 0..<fetchResult.count {
-                    imgManager.requestImage(for: fetchResult.object(at: i) as PHAsset, targetSize: CGSize(width: 512, height: 512), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
+                    imgManager.requestImage(for: fetchResult.object(at: i) as PHAsset, targetSize: CGSize(width: 32, height: 32), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
                         self.imageArray.append(image!)
                     })
                 }
             } else {
                 print("No photos")
+                DispatchQueue.main.async {
+                    self.labelNoPhotos.alpha = 1
+                }
             }
             
             DispatchQueue.main.async {
                 self.galleryCollectionView.reloadData()
+                self.galleryCollectionView.alpha = 0
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.galleryCollectionView.alpha = 1
+                })
             }
         }
     }

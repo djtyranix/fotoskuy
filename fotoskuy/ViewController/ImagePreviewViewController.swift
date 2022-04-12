@@ -28,7 +28,7 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
         previewCollectionView.delegate = self
         previewCollectionView.dataSource = self
         previewCollectionView.register(ImagePreviewFullViewCell.self, forCellWithReuseIdentifier: "Cell")
-        previewCollectionView.isPagingEnabled = false
+        previewCollectionView.isPagingEnabled = true
         
         DispatchQueue.main.async {
             self.previewCollectionView.scrollToItem(at: self.passedContentOffset, at: .centeredHorizontally, animated: false)

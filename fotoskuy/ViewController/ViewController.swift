@@ -151,7 +151,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
     }
     
-    private func grabPhotos() {
+    private func grabPhotos(){
         let imgManager = PHImageManager.default()
         
         let requestOptions = PHImageRequestOptions()
@@ -160,9 +160,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
+        guard let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum() else { return  }
         
-        let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
+        let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection, options: fetchOptions)
         
         if fetchResult.count > 0 {
             imgManager.requestImage(for: fetchResult.object(at: 0) as PHAsset, targetSize: CGSize(width: 32, height: 32), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in

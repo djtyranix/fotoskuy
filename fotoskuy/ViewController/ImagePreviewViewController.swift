@@ -9,33 +9,30 @@ import UIKit
 
 class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var previewCollectionView: UICollectionView!
+    @IBOutlet weak var previewCollectionView: UICollectionView!
     var imageArray = [UIImage]()
     var passedContentOffset = IndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let layout = UICollectionViewFlowLayout()
+        let layout = UIFlowLayoutCustom()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
         
-        previewCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        print(passedContentOffset.row)
+        
+        previewCollectionView.collectionViewLayout = layout
         previewCollectionView.delegate = self
         previewCollectionView.dataSource = self
         previewCollectionView.register(ImagePreviewFullViewCell.self, forCellWithReuseIdentifier: "Cell")
-        previewCollectionView.isPagingEnabled = true
-        previewCollectionView.scrollToItem(at: IndexPath(item: 4, section: 0), at: .left, animated: true)
-        previewCollectionView.showsHorizontalScrollIndicator = false
+        previewCollectionView.isPagingEnabled = false
         
-        
-        self.view.addSubview(previewCollectionView)
-        
-        previewCollectionView.autoresizingMask = UIView.AutoresizingMask(
-            rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue))
-        )
+        DispatchQueue.main.async {
+            self.previewCollectionView.scrollToItem(at: self.passedContentOffset, at: .centeredHorizontally, animated: false)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,6 +47,10 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: previewCollectionView.frame.width - (previewCollectionView.safeAreaInsets.left + previewCollectionView.safeAreaInsets.right) , height: previewCollectionView.frame.height - (previewCollectionView.safeAreaInsets.top + previewCollectionView.safeAreaInsets.bottom))
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
@@ -59,8 +60,6 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
         
         flowLayout.itemSize = previewCollectionView.frame.size
         flowLayout.invalidateLayout()
-        
-        previewCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -78,5 +77,11 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
             self.previewCollectionView.reloadData()
             self.previewCollectionView.setContentOffset(newOffset, animated: false)
         }, completion: nil)
+    }
+    
+    class UIFlowLayoutCustom: UICollectionViewFlowLayout {
+        override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+            return true
+        }
     }
 }

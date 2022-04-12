@@ -43,7 +43,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewController = ImagePreviewViewController()
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "imagePreview") as! ImagePreviewViewController
         viewController.imageArray = self.imageArray
         viewController.passedContentOffset = indexPath
         self.navigationController?.pushViewController(viewController, animated: true)

@@ -152,10 +152,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     private func grabPhotos() {
-//        imageArray = []
-        
-        print("Loading last image")
-        
         let imgManager = PHImageManager.default()
         
         let requestOptions = PHImageRequestOptions()
@@ -172,7 +168,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             imgManager.requestImage(for: fetchResult.object(at: 0) as PHAsset, targetSize: CGSize(width: 32, height: 32), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
                 self.imageArray.append(image!)
             })
-            print("dalam array func \(self.imageArray.count)")
         }
         
         

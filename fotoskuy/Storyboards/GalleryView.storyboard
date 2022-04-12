@@ -98,6 +98,24 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Jt-RO-M1l">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="trash" image="trash" catalog="system" id="lFu-if-aIc">
+                                        <connections>
+                                            <action selector="deleteButton:" destination="Q1M-wV-xde" id="WB0-4o-c6h"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WNg-Gh-Stp"/>
+                                    <barButtonItem title="share" image="square.and.arrow.up" catalog="system" id="8bF-iX-8Hi">
+                                        <connections>
+                                            <action selector="shareButton:" destination="Q1M-wV-xde" id="YCE-J0-Eux"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <toolbarAppearance key="standardAppearance"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mfT-6f-reX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -114,10 +132,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbc-Bn-c3u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="66"/>
+            <point key="canvasLocation" x="889.85507246376824" y="65.625"/>
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -35,7 +35,38 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
         }
         
         reloadWithHDPicture(index: passedContentOffset.row)
+        
     }
+    
+    @IBAction func shareButton(_ sender: Any) {
+        DispatchQueue.main.async {
+            let shareController = UIActivityViewController(activityItems: [self.imageArray[self.passedContentOffset.row]], applicationActivities: nil)
+            shareController.completionWithItemsHandler = { _, bool, _, _ in
+                if bool {
+                    print("It is done!")
+                }
+            }
+            
+            shareController.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+            shareController.popoverPresentationController?.permittedArrowDirections = .any
+            
+            self.present(shareController, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func deleteButton(_ sender: Any) {
+
+        PHPhotoLibrary.shared().performChanges({
+            let album = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
+            guard let request = PHAssetCollectionChangeRequest(for: album!) else {
+                    return
+                }
+            request.removeAssets([self.imageArray[self.passedContentOffset.row]] as NSArray)
+            }) { (result, error) in
+                print("completionBlock",result, error!)
+            }
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageArray.count
@@ -145,4 +176,5 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
             reloadWithHDPicture(index: i.row)
         }
     }
+    
 }

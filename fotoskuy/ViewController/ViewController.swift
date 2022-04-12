@@ -72,6 +72,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     @IBOutlet weak var infoButton: UIButton!
     
+    @IBOutlet weak var compositionLabel: UILabel!
+    
     @IBAction func infoPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToInfoSheet", sender: sender)
     }
@@ -143,6 +145,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         initCompositionArray()
         initDefaultComposition()
         checkIfFlipGridSupported()
+        initCompositionNameLabel()
         
         grabPhotos()
         if imageArray.count > 0 {
@@ -151,7 +154,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
     }
     
-    private func grabPhotos() {
+    private func grabPhotos(){
         let imgManager = PHImageManager.default()
         
         let requestOptions = PHImageRequestOptions()
@@ -160,9 +163,9 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
+        guard let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum() else { return  }
         
-        let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
+        let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection, options: fetchOptions)
         
         if fetchResult.count > 0 {
             imgManager.requestImage(for: fetchResult.object(at: 0) as PHAsset, targetSize: CGSize(width: 32, height: 32), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
@@ -400,6 +403,11 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         gridOverlay.image = UIImage(named: currentComposition.compositionGridImageName)
     }
     
+    private func initCompositionNameLabel(){
+        self.currentComposition = compositionCollections[0]
+        compositionLabel.text = currentComposition.compositionName
+    }
+    
     private func initCompositionArray() {
         compositionCollections = initCompData()
     }
@@ -480,11 +488,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
                 gridButton.tintColor = UIColor(hex: "#8E8D94FF")
                 infoButton.tintColor = UIColor(hex: "#8E8D94FF")
                 infoButton.isEnabled = false
+                compositionLabel.alpha = 0
             } else {
                 gridOverlay.alpha = 1
                 gridButton.tintColor = .white
                 infoButton.tintColor = .white
                 infoButton.isEnabled = true
+                compositionLabel.alpha = 1
+                compositionLabel.text = selectedComposition.compositionName
                 
                 gridOverlay.image = UIImage(named: selectedComposition.compositionGridImageName)
             }
@@ -537,4 +548,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             }
         }
     }
+    
+    
 }

@@ -38,8 +38,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var selectedTimer: TimerData!
     var timer: Timer!
     
+    // preview last image
+    var imageArray = [UIImage]()
+    
     @IBOutlet weak var timerLabel: UILabel!
     
+    // Gallery Preview
     @IBOutlet weak var previewGallery: UIImageView!
     
     // Camera Frame
@@ -139,6 +143,34 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         initCompositionArray()
         initDefaultComposition()
         checkIfFlipGridSupported()
+        
+        grabPhotos()
+        if imageArray.count > 0 {
+            previewGallery.image = imageArray[0]
+        }
+        
+    }
+    
+    private func grabPhotos() {
+        let imgManager = PHImageManager.default()
+        
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.isSynchronous = true
+        requestOptions.deliveryMode = .opportunistic
+        
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
+        
+        let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
+        
+        if fetchResult.count > 0 {
+            imgManager.requestImage(for: fetchResult.object(at: 0) as PHAsset, targetSize: CGSize(width: 32, height: 32), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
+                self.imageArray.append(image!)
+            })
+        }
+        
+        
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

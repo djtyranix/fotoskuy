@@ -13,4 +13,5 @@ struct Composition {
     let compositionBodyText: String
     let compositionImageName: String
     var compositionGridImageName: String
+    let imageCopyright: String
 }

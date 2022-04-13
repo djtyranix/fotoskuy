@@ -22,7 +22,9 @@ class InfoSheetViewController: UIViewController {
     
     @IBOutlet weak var compositionBodyText: UITextView!
     
-    var composition: Composition = Composition(compositionName: "", compositionSubtitle: "", compositionBodyText: "", compositionImageName: "", compositionGridImageName: "")
+    @IBOutlet weak var imageCopyright: UILabel!
+    
+    var composition: Composition = Composition(compositionName: "", compositionSubtitle: "", compositionBodyText: "", compositionImageName: "", compositionGridImageName: "", imageCopyright: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,7 @@ class InfoSheetViewController: UIViewController {
         compositionSubtitle.text = composition.compositionSubtitle
         compositionBodyText.text = composition.compositionBodyText
         compositionImageExample.image = UIImage(named: composition.compositionImageName)
+        imageCopyright.text = composition.imageCopyright
     }
 
 }

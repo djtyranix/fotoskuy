@@ -12,7 +12,8 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBOutlet weak var previewCollectionView: UICollectionView!
     var imageArray = [UIImage]()
-    var indexArray = [Int]()
+    var currentIndex = 0
+    var previousIndex = 0
     var passedContentOffset = IndexPath()
     
     override func viewDidLoad() {
@@ -34,39 +35,27 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
             self.previewCollectionView.scrollToItem(at: self.passedContentOffset, at: .centeredHorizontally, animated: false)
         }
         
+        currentIndex = passedContentOffset.row
+//        print(self.currentIndex)
         reloadWithHDPicture(index: passedContentOffset.row)
-        
     }
     
-    @IBAction func shareButton(_ sender: Any) {
+    @IBAction func shareButton(_ sender: UIBarButtonItem) {
         DispatchQueue.main.async {
-            let shareController = UIActivityViewController(activityItems: [self.imageArray[self.passedContentOffset.row]], applicationActivities: nil)
+            let data = self.imageArray[self.currentIndex].jpegData(compressionQuality: 0.75)
+            let shareController = UIActivityViewController(activityItems: [data!], applicationActivities: nil)
             shareController.completionWithItemsHandler = { _, bool, _, _ in
                 if bool {
-                    print("It is done!")
+                    print("Share done!")
                 }
             }
             
-            shareController.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+            shareController.popoverPresentationController?.barButtonItem = sender
             shareController.popoverPresentationController?.permittedArrowDirections = .any
             
             self.present(shareController, animated: true, completion: nil)
         }
     }
-    
-    @IBAction func deleteButton(_ sender: Any) {
-
-        PHPhotoLibrary.shared().performChanges({
-            let album = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
-            guard let request = PHAssetCollectionChangeRequest(for: album!) else {
-                    return
-                }
-            request.removeAssets([self.imageArray[self.passedContentOffset.row]] as NSArray)
-            }) { (result, error) in
-                print("completionBlock",result, error!)
-            }
-    }
-
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageArray.count
@@ -126,9 +115,9 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
             
             let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
             
-            imgManager.requestImage(for: fetchResult.object(at: index) as PHAsset, targetSize: CGSize(width: 1024, height: 1024), contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
+            imgManager.requestImage(for: fetchResult.object(at: index) as PHAsset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
                 self.imageArray[index] = image!
-                self.indexArray.append(index)
+                self.previousIndex = index
             })
             
             DispatchQueue.main.async {
@@ -164,17 +153,18 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let indexes = previewCollectionView.indexPathsForVisibleItems
-//        print(indexes)
+        let visibleRect = CGRect(origin: previewCollectionView.contentOffset, size: previewCollectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        let visibleIndexPath = previewCollectionView.indexPathForItem(at: visiblePoint)
+        self.currentIndex = visibleIndexPath!.row
+        
+//        print(self.currentIndex)
         DispatchQueue.global().async {
-            for i in self.indexArray {
-                self.releaseMemoryFromBigImage(index: i)
-            }
+            self.releaseMemoryFromBigImage(index: self.previousIndex)
         }
         
-        for i in indexes {
-            reloadWithHDPicture(index: i.row)
+        DispatchQueue.global().async {
+            self.reloadWithHDPicture(index: visibleIndexPath!.row)
         }
     }
-    
 }

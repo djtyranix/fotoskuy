@@ -42,7 +42,8 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBAction func shareButton(_ sender: UIBarButtonItem) {
         DispatchQueue.main.async {
-            let shareController = UIActivityViewController(activityItems: [self.imageArray[self.currentIndex]], applicationActivities: nil)
+            let data = self.imageArray[self.currentIndex].jpegData(compressionQuality: 0.75)
+            let shareController = UIActivityViewController(activityItems: [data!], applicationActivities: nil)
             shareController.completionWithItemsHandler = { _, bool, _, _ in
                 if bool {
                     print("Share done!")
@@ -54,39 +55,6 @@ class ImagePreviewViewController: UIViewController, UICollectionViewDelegate, UI
             
             self.present(shareController, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
-        
-        let optionMenu = UIAlertController(title: nil, message: "Are you sure you want to delete? Deleted files cannot be recovered!", preferredStyle: .actionSheet)
-        
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
-            self.deleteCurrentPicture()
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        optionMenu.addAction(deleteAction)
-        optionMenu.addAction(cancelAction)
-        
-        self.present(optionMenu, animated: true, completion: nil)
-    }
-    
-    private func deleteCurrentPicture() {
-        PHPhotoLibrary.shared().performChanges({
-            let requestOptions = PHImageRequestOptions()
-            requestOptions.isSynchronous = true
-            requestOptions.deliveryMode = .opportunistic
-            
-            let fetchOptions = PHFetchOptions()
-            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-            let phAssetCollection = SingletonCustomPhotoAlbum.sharedInstance.fetchAssetCollectionForAlbum()
-            
-            let fetchResult: PHFetchResult = PHAsset.fetchAssets(in: phAssetCollection!, options: fetchOptions)
-            PHAssetChangeRequest.deleteAssets(fetchResult)
-        }, completionHandler: {success, error in
-            print(success ? "Successfully deleted photo" : "Error in deleting photo: \(String(describing: error))" )
-        })
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

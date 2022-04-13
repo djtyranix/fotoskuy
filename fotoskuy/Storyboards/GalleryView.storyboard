@@ -104,7 +104,7 @@
                                 <items>
                                     <barButtonItem title="trash" image="trash" catalog="system" id="lFu-if-aIc">
                                         <connections>
-                                            <action selector="deleteButton:" destination="Q1M-wV-xde" id="WB0-4o-c6h"/>
+                                            <action selector="deletePressed:" destination="Q1M-wV-xde" id="hjb-tb-1CH"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WNg-Gh-Stp"/>
